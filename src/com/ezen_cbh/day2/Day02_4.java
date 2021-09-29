@@ -150,5 +150,7 @@ public class Day02_4 {
 		//int y = x-- + 5 + --x;
 		//printf(" x의 값 : %d , y의값 :  %d ", x, y)
 		//10 23 
+		
+		//
 	}
 }
