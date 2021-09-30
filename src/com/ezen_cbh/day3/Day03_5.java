@@ -1,4 +1,4 @@
-package Day03_1;
+package com.ezen_cbh.day3;
 
 import java.util.Scanner;
 
