@@ -29,21 +29,19 @@ public class Gradecard_main {
 			System.out.println("1.성적기입  2.성적조회");
 			int ch = sc.nextInt();
 			if(ch == 1) {
-				System.out.println("번호를 입력하세요!! >>>"); int numbers = sc.nextInt();
-				System.out.println("이름을 입력하세요 !! >>>"); String name = sc.next();
+				System.out.println("번호를 입력하세요!! >>>"); int numbers = sc.nextInt(); sc.nextInt();
+				System.out.println("이름을 입력하세요 !! >>>"); String name = sc.next(); sc.next();
 				System.out.println("국어 점수를 입력하세요  >>>"); int kor = sc.nextInt();
 				System.out.println("영어 점수를 입력하세요 >>>"); int eng = sc.nextInt();
 				System.out.println("수학 점수를 입력하세요 >>>"); int math = sc.nextInt();
 				int sumpoint = kor + eng + math; int avg = sumpoint/3; 
-				
-				Gradecard student = new Gradecard(numbers, name, kor, eng, math,sumpoint,avg, null);
+				int rank = 1;
+				Gradecard student = new Gradecard(numbers, name, kor, eng, math,sumpoint,avg, rank);
 				
 				for(int i = 0; i<students.size(); i++) {
 					for(int j = 0; j<students.size(); i++) {
 						if(students.get(i).getSumpoint() > students.get(j).getSumpoint()) {
-							int temp = students.get(i).getSumpoint();
-							students.get(i).setSumpoint(students.get(j).getSumpoint());
-							students.get(j).setSumpoint(temp);
+							students.get(j).setRank(students.get(j).getRank() + 1) ;
 						}
 					}
 					// students.get(i).setRank();
