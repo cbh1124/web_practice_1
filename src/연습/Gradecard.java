@@ -23,11 +23,11 @@ public class Gradecard {
 		private int eng;
 		private int math;
 		private int sumpoint;
-		private int avg;
+		private double avg;
 		private int rank;
 		
 		// 持失切 識情
-		public Gradecard(int numbers, String name, int kor, int eng, int math, int sumpoint, int avg, int rank) {
+		public Gradecard(int numbers, String name, int kor, int eng, int math, int sumpoint, double avg, int rank) {
 			this.numbers = numbers;
 			this.name = name;
 			this.kor = kor;
@@ -87,11 +87,11 @@ public class Gradecard {
 			this.sumpoint = sumpoint;
 		}
 
-		public int getAvg() {
+		public double getAvg() {
 			return avg;
 		}
 
-		public void setAvg(int avg) {
+		public void setAvg(double avg) {
 			this.avg = avg;
 		}
 
