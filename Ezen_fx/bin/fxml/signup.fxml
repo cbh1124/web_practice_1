@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="mainboarderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="901.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignupController">
+   <center>
+      <AnchorPane fx:id="signuppane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="600.0" fitWidth="984.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Desktop/새%20폴더/loginimg.jpg" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="226.0" layoutY="65.0" opacity="0.86" prefHeight="471.0" prefWidth="449.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;">
+               <children>
+                  <TextField blendMode="SRC_ATOP" layoutX="80.0" layoutY="121.0" prefHeight="39.0" prefWidth="276.0" promptText="User ID">
+                     <font>
+                        <Font name="Yj GABI Bold" size="15.0" />
+                     </font>
+                  </TextField>
+                  <PasswordField layoutX="80.0" layoutY="167.0" prefHeight="38.0" prefWidth="276.0" promptText="User password">
+                     <font>
+                        <Font name="Yj GABI Bold" size="15.0" />
+                     </font>
+                  </PasswordField>
+                  <Button layoutX="80.0" layoutY="363.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="276.0" style="-fx-background-color: #00ff0000; -fx-border-color: #000000;" text="회원 등록">
+                     <font>
+                        <Font name="Yj GABI Bold" size="21.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="99.0" layoutY="418.0" text="회원 가입[ 동일한 정보가 없습니다]" textFill="#f00000">
+                     <font>
+                        <Font name="Yj GABI Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="btnback" layoutX="307.0" layoutY="56.0" onMouseClicked="#back" prefHeight="19.0" prefWidth="119.0" text="뒤로가기">
+                     <font>
+                        <Font name="Yj GABI Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="50.0" fitWidth="104.0" layoutX="179.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Desktop/새%20폴더/loginicon_1.png" />
+                     </image>
+                  </ImageView>
+                  <TextField blendMode="SRC_ATOP" layoutX="80.0" layoutY="260.0" prefHeight="39.0" prefWidth="276.0" promptText="Name">
+                     <font>
+                        <Font name="Yj GABI Bold" size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField blendMode="SRC_ATOP" layoutX="80.0" layoutY="310.0" prefHeight="39.0" prefWidth="276.0" promptText="Email">
+                     <font>
+                        <Font name="Yj GABI Bold" size="15.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="158.0" layoutY="86.0" prefHeight="19.0" prefWidth="119.0" text="나이키 회원가입 ">
+                     <font>
+                        <Font name="Yj GABI Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField blendMode="SRC_ATOP" layoutX="80.0" layoutY="213.0" prefHeight="39.0" prefWidth="276.0" promptText="User password confirm">
+                     <font>
+                        <Font name="Yj GABI Bold" size="15.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
