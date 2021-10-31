@@ -8,14 +8,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="signuppane" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="findpasswordpane" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FindpasswordController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="984.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@loginimg.jpg" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="findpasswordpane" layoutX="226.0" layoutY="65.0" opacity="0.86" prefHeight="471.0" prefWidth="449.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;">
+      <AnchorPane layoutX="226.0" layoutY="65.0" opacity="0.86" prefHeight="471.0" prefWidth="449.0" style="-fx-background-color: #ffffff; -fx-background-radius: 50;">
          <children>
             <TextField fx:id="txtemail" blendMode="SRC_ATOP" layoutX="80.0" layoutY="148.0" prefHeight="39.0" prefWidth="276.0" promptText="Email">
                <font>
@@ -27,7 +27,7 @@
                   <Font name="Yj GABI Bold" size="15.0" />
                </font>
             </TextField>
-            <Button fx:id="btnfindpassword" layoutX="80.0" layoutY="331.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="276.0" style="-fx-background-color: #00ff0000; -fx-border-color: #000000;" text="비밀번호 찾기 ">
+            <Button fx:id="btnfindpassword" layoutX="80.0" layoutY="331.0" mnemonicParsing="false" onAction="#findpassword" prefHeight="36.0" prefWidth="276.0" style="-fx-background-color: #00ff0000; -fx-border-color: #000000;" text="비밀번호 찾기 ">
                <font>
                   <Font name="Yj GABI Bold" size="21.0" />
                </font>

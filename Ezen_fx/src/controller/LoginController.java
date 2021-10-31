@@ -65,12 +65,12 @@ public class LoginController implements Initializable {
 
     @FXML
     void findid(MouseEvent event) {
-    	loadpage("findid");
+    	loadpage("idfind");
     }
 
     @FXML
     void findpassword(MouseEvent event) {
-    	loadpage("findpassword");
+    	loadpage("pwfind");
     }
 
     @FXML
