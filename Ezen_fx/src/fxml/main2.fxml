@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="findpasswordpane" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FindpasswordController">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="984.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@loginimg.jpg" />
+         </image>
+      </ImageView>
+      <VBox prefHeight="600.0" prefWidth="222.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
+         <children>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="104.0" layoutX="72.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../web_ezen_1/java2/src/fxml/loginicon_1.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Button fx:id="btnlogin1" mnemonicParsing="false" onAction="#login" prefHeight="40.0" prefWidth="276.0" style="-fx-background-color: #00ff0000;" text="Home">
+               <font>
+                  <Font name="Yj GABI Bold" size="21.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnlogin11" mnemonicParsing="false" onAction="#login" prefHeight="40.0" prefWidth="276.0" style="-fx-background-color: #00ff0000;" text="Notice">
+               <font>
+                  <Font name="Yj GABI Bold" size="21.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnlogin12" mnemonicParsing="false" onAction="#login" prefHeight="40.0" prefWidth="276.0" style="-fx-background-color: #00ff0000;" text="Chatting">
+               <font>
+                  <Font name="Yj GABI Bold" size="21.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnlogin13" mnemonicParsing="false" onAction="#login" prefHeight="40.0" prefWidth="276.0" style="-fx-background-color: #00ff0000;" text="Product">
+               <font>
+                  <Font name="Yj GABI Bold" size="21.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnlogin14" mnemonicParsing="false" onAction="#login" prefHeight="40.0" prefWidth="276.0" style="-fx-background-color: #00ff0000;" text="Myinfo">
+               <font>
+                  <Font name="Yj GABI Bold" size="21.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnlogin141" mnemonicParsing="false" onAction="#login" prefHeight="40.0" prefWidth="276.0" style="-fx-background-color: #00ff0000;" text="logout">
+               <font>
+                  <Font name="Yj GABI Bold" size="21.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

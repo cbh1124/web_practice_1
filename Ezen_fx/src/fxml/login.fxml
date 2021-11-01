@@ -61,7 +61,7 @@
                         <Image url="@../../../../web_ezen_1/java2/src/fxml/loginicon_1.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="121.0" layoutY="64.0" prefHeight="26.0" prefWidth="97.0" text="나이키 로그인">
+                  <Label layoutX="121.0" layoutY="64.0" prefHeight="26.0" prefWidth="127.0" text="나이키 로그인">
                      <font>
                         <Font name="Yj GABI Bold" size="16.0" />
                      </font>

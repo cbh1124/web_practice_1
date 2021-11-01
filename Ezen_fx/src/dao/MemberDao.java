@@ -24,7 +24,7 @@ public  class MemberDao {
 			try {
 				Class.forName("com.mysql.cj.jdbc.Driver");
 				connection = DriverManager.getConnection(
-						"jdbc:mysql://localhost:3308/cbh?serverTimezone=UTC" , 
+						"jdbc:mysql://localhost:3307/javafx?serverTimezone=UTC" , 
 						"root" , "1234");
 				System.out.println(" db 연동 성공");
 			}
@@ -40,7 +40,7 @@ public  class MemberDao {
 		// 1. 회원가입 메소드  [ 인수로 member객체를 받아 db에 저장하는 메소드 ]
 	public boolean signup( Member member ) {
 		// 1. SQL 작성 [ SQL : DB 조작어 DML ]
-		String sql = "insert into cbh(m_id, m_password,m_name,m_email,m_point)"
+		String sql = "insert into member(m_id, m_password,m_name,m_email,m_point)"
 					+ " values( ? , ? , ? , ? , ?)";
 		try {
 			// 2. SQL ---> DB 연결 [ PreparedStatement 인터페이스 : 연결된 DB에 SQL 조작 ]
@@ -63,7 +63,7 @@ public  class MemberDao {
 	public boolean login( String id , String password ) {
 		
 		// 1. SQL 작성
-		String sql = "select * from cbh where m_id=? and m_password=?";
+		String sql = "select * from member where m_id=? and m_password=?";
 		// 2. SQL -> DB 연결 [ 무조건 예외발생 ] 
 		try {
 			preparedStatement = connection.prepareStatement(sql);
@@ -87,7 +87,7 @@ public  class MemberDao {
 		
 	public String findid(String name, String email) {
 		// 1. SQL 작성 
-		String sql = "select m_id from cbh where m_name=? and m_email =?";
+		String sql = "select m_id from member where m_name=? and m_email =?";
 		// 2. SQL -> DB 연결 
 		try {
 			preparedStatement = connection.prepareStatement(sql);
@@ -112,7 +112,7 @@ public  class MemberDao {
 		// 4. 패스워드찾기 메소드 
 	public String findpassword(String id, String email) {
 		// 1. SQL 작성 
-		String sql = "select m_password from cbh where m_id=? and m_email =?";
+		String sql = "select m_password from member where m_id=? and m_email =?";
 		// 2. SQL -> DB 연결 
 		try {
 			preparedStatement = connection.prepareStatement(sql);
@@ -137,7 +137,51 @@ public  class MemberDao {
 		// 5. 회원수정 메소드 
 		
 		// 6. 회원탈퇴 메소드 
+	public boolean delete(String loginid) {
+		String sql = "delete from member where m_id=?";
+				// delete from 테이블명 
+				// delete from 테이블명 where 조건 
 		
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, loginid);
+			preparedStatement.executeUpdate();
+			return true;
+		}catch (Exception e) {
+			
+		}
+		return false; // DB 오류 
+	}
+		// 7. 회원 조회 메소드 [ 회원 아이디를 인수로 받아 회원정보 반환 ]
+	
+	public Member getmember(String loginid) {
+		
+		
+		// 1. SQL 작성 
+		
+		String sql = "select * from member where m_id=?";
+		
+		// 2. SQL 연결 
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			
+			// 3. SQL 설정 
+			preparedStatement.setString(1, loginid);
+			resultSet = preparedStatement.executeQuery();
+			
+			if(resultSet.next()) {
+			// 패스워드를 제외한 회원정보 출력 
+				Member member = new Member(resultSet.getString(2), "", resultSet.getString(4),
+						resultSet.getString(5), resultSet.getInt(6));
+				return member;
+			}else {
+				return null; // 회원 정보가 없을경우 
+			}
+		}catch (Exception e) {
+			
+		}
+		return null;
+	}
 		
 	
 	
