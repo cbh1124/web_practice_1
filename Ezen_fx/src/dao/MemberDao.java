@@ -136,6 +136,25 @@ public  class MemberDao {
 	}
 		// 5. 회원수정 메소드 
 		
+	public boolean update(String id, String name, String email ) {
+		
+		String sql ="update member set m_name=?, m_email = ? where m_id = ?";
+					// update 테이블명 set 변경필드 = 값 , 변경필드 2 = 값2 where 조건 
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, name);
+			preparedStatement.setString(2, email);
+			preparedStatement.setString(3, id);
+			preparedStatement.executeUpdate();
+			return true;
+		}
+		catch (Exception e) {
+			
+		}
+		return false;
+	}
+	
+	
 		// 6. 회원탈퇴 메소드 
 	public boolean delete(String loginid) {
 		String sql = "delete from member where m_id=?";
@@ -182,8 +201,35 @@ public  class MemberDao {
 		}
 		return null;
 	}
-		
 	
+	public boolean idcheck( String id) {
+		String sql = "select m_id from member where m_id=?";
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, id);
+			resultSet = preparedStatement.executeQuery();
+			if( resultSet.next() ) { return true; } // 현재 아이디가 존재하면
+			else { return false; } // 현재 아이디가 존재하지 않으면
+		}
+		catch (Exception e) {}
+		return true; // DB 오류 
+	}
+		
+	public boolean pointupdate(String id, int point) {
+		String sql = "update member set m_point = m_point + ? where m_id = ? ";
+		
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, point);
+			preparedStatement.setString(2, id);
+			preparedStatement.executeUpdate();
+			return true;
+		}
+		catch (Exception e) {
+			
+		}
+		return false;
+	}
 	
 	
 	

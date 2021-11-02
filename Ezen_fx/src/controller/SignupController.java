@@ -82,7 +82,9 @@ public class SignupController implements Initializable {
 	    		lblconfirm.setText("이메일 형식으로 입력해주세요."); return; 
 	    	}
     	// 2. 중복체크 
-    	
+	    boolean idcheck =  MemberDao.getMemberDao().idcheck( txtid.getText() );
+	    if( idcheck ) {  lblconfirm.setText("현재 사용중인 아이디 입니다. "); return;  }
+	    	
     	// 3. 객체화 
     	Member member = new Member(txtid.getText(), txtpassword.getText(),
     								txtname.getText(), txtemail.getText() );

@@ -13,5 +13,5 @@ module Ezen_fx {
 	opens controller to javafx.graphics, javafx.fxml;
 	opens Day02 to javafx.graphics, javafx.fxml;
 	opens dao to java.sql;
-	opens domain to mail, activation;
+	opens domain to mail, activation, javafx.base;
 }

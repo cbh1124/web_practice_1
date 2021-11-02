@@ -24,9 +24,6 @@ public class MyinfoController implements Initializable {
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
-		
-		
 		String loginid = MainpageController.getinstance().getloginid();
 		
 		Member member =  MemberDao.getMemberDao().getmember(loginid);
@@ -40,7 +37,7 @@ public class MyinfoController implements Initializable {
 		
 		
 	}
-	 @FXML
+	@FXML
     private Button btndelete;
 
     @FXML
@@ -113,6 +110,6 @@ public class MyinfoController implements Initializable {
 
 	 @FXML
 	 void update(ActionEvent event) {
-
+		 MainpageController.getinstance().loadpage("myinfoupdate");
 	 }
 }
