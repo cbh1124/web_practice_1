@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import domain.Board;
+import domain.Reply;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -62,7 +63,7 @@ public class BoardDao {
 		ArrayList<Board> arrayList = new ArrayList<Board>();
 		
 		// 1. 조건 없이 모두 가져오기 
-		String sql = "select * from board ";
+		String sql = "select * from board order by b_no desc";
 		try {
 			preparedStatement = connection.prepareStatement(sql);
 			resultSet = preparedStatement.executeQuery();
@@ -85,11 +86,102 @@ public class BoardDao {
 
 	
 		// 3. 게시물 삭제 메소드  
-	
+	public boolean viewdelete( int b_no ) {
+		String sql = "delete from board where b_no = ?";
+		
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, b_no); 
+			preparedStatement.executeUpdate(); // sql 갱신
+			return true;
+		} catch (Exception e) {
+			
+		}return false;
+		
+	}
 	
 		// 4. 게시물 수정 메소드 
-	
+	public boolean update(int b_no, String b_title, String b_contents) {
+		
+		String sql = "update board set b_title =?, b_contents =? where b_no = ?"; // 업데이트 
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(3, b_no);
+			preparedStatement.setString(1, b_title);
+			preparedStatement.setString(2, b_contents);
+			preparedStatement.executeUpdate(); // sql 갱신
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+		}return false;
+	}
 	
 		// 5. 게시물 개별조회 메소드  
-
+	
+		// 6. 게시물 증가 메소드   // 해당 인수값을 업데이트 할거니까 내부에 있는 값을 가져와서 db에서 추가 해서 카운트 증가 
+	public boolean viewupdate( int b_no ) {
+		String sql = "update board set b_view = b_view+1 where b_no = ?";
+		
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, b_no);
+			preparedStatement.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			
+		}return false;
+		
+	}
+	
+		// 7. 댓글 등록 메소드 
+	public boolean replywrite(Reply reply) {
+		
+		String sql = "insert into reply(r_contents, r_write, r_b_no) values(?,?,?)";
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, reply.getR_contents());
+			preparedStatement.setString(2, reply.getR_write());
+			preparedStatement.setInt(3, reply.getR_b_no());
+			preparedStatement.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			
+		}return false;
+	}
+		// 8. 댓글 출력 메소드 
+	public ObservableList<Reply> replylist(int r_b_no){
+		ObservableList<Reply> replys = FXCollections.observableArrayList();
+		
+		String sql = "select * from reply where r_b_no = ? order by r_no desc";
+		
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, r_b_no);
+			resultSet = preparedStatement.executeQuery();
+			
+			while(resultSet.next()) {
+				Reply reply = new Reply(resultSet.getInt(1) ,
+						resultSet.getString(2),
+						resultSet.getString(3),
+						resultSet.getString(4),
+						resultSet.getInt(5) );
+				replys.add(reply);
+			}
+			return replys;
+		}
+		catch (Exception e) {
+			
+		}return replys;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
