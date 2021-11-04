@@ -201,7 +201,7 @@ public  class MemberDao {
 		}
 		return null;
 	}
-	
+	// 8. 아이디 체크
 	public boolean idcheck( String id) {
 		String sql = "select m_id from member where m_id=?";
 		try {
@@ -231,7 +231,41 @@ public  class MemberDao {
 		return false;
 	}
 	
+		//10. 회원 id의 회원번호 찾기 메소드 
+	public int mnocheck(String id) {
+		String sql = "select m_no from member where m_id = ?";
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, id);
+			resultSet = preparedStatement.executeQuery();
+			
+			if(resultSet.next()) {
+				System.out.println(resultSet.getInt(1));
+				return resultSet.getInt(1);
+				}
+			else {return 0;}
+			
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+		}return 0;
+		
 	
+	}
+	
+		// 11. 회원 번호의 회원 id 찾기 메소드 
+	public String midcheck( int m_no) {
+		String sql = "select m_id from member where m_no=?";
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, m_no);
+			resultSet = preparedStatement.executeQuery();
+			if( resultSet.next() ) { return resultSet.getString(1); } // 현재 아이디가 존재하면
+			else { return ""; } // 현재 아이디가 존재하지 않으면
+		}
+		catch (Exception e) {}
+		return ""; // DB 오류 
+	}
 	
 	
 	

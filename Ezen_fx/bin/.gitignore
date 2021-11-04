@@ -1,4 +1,4 @@
-/controller/
-/fxml/
-/dao/
 /domain/
+/dao/
+/fxml/
+/controller/
