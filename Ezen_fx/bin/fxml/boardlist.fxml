@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BoardlistController">
+   <children>
+      <Label layoutX="63.0" layoutY="17.0" prefHeight="14.0" prefWidth="105.0" text="My">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="63.0" layoutY="46.0" prefHeight="29.0" prefWidth="205.0" text="Community list">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.37129223346710205" green="0.022538986057043076" blue="0.9736841917037964" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Line endX="45.0" layoutX="164.0" layoutY="98.0" startX="-100.0" />
+      <TableView fx:id="boardlist" layoutX="64.0" layoutY="152.0" prefHeight="392.0" prefWidth="635.0" style="-fx-border-color: #000000;">
+        <columns>
+          <TableColumn prefWidth="75.0" style="-fx-background-color: #f1f1f1;" text="No." />
+          <TableColumn prefWidth="332.0" style="-fx-background-color: #f1f1f1;" text="Title" />
+            <TableColumn prefWidth="92.0" style="-fx-background-color: #f1f1f1;" text="Writer" />
+            <TableColumn prefWidth="82.0" style="-fx-background-color: #f1f1f1;" text="Date" />
+            <TableColumn minWidth="0.0" prefWidth="53.0" style="-fx-background-color: #f1f1f1;" text="View" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnwrite" layoutX="603.0" layoutY="112.0" mnemonicParsing="false" onAction="#write" prefHeight="29.0" prefWidth="95.0" style="-fx-background-color: #f1f1f1; -fx-border-color: #000000;" text="Register" />
+   </children>
+</AnchorPane>

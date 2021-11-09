@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProductlistController">
+   <children>
+      <TableView fx:id="productlist" layoutX="306.0" layoutY="139.0" prefHeight="405.0" prefWidth="419.0">
+        <columns>
+          <TableColumn prefWidth="98.0" text="제품명 " />
+          <TableColumn prefWidth="73.0" text="카테고리 " />
+            <TableColumn prefWidth="92.0" text="가격" />
+            <TableColumn prefWidth="67.0" text="상태 " />
+            <TableColumn prefWidth="88.0" text="등록날짜 " />
+        </columns>
+      </TableView>
+      <Label layoutX="73.0" layoutY="41.0" prefHeight="29.0" prefWidth="205.0" text="Product list">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.37129223346710205" green="0.022538986057043076" blue="0.9736841917037964" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Line endX="45.0" layoutX="174.0" layoutY="93.0" startX="-100.0" />
+      <Label fx:id="lblpname" layoutX="53.0" layoutY="457.0" prefHeight="14.0" prefWidth="164.0" text="제품명 " />
+      <Label fx:id="lblpcontents" layoutX="53.0" layoutY="483.0" prefHeight="14.0" prefWidth="164.0" text="제품 설명 " />
+      <Label fx:id="lblmid" layoutX="53.0" layoutY="525.0" prefHeight="14.0" prefWidth="164.0" text="등록 회원 " />
+      <Label fx:id="lblpprice" layoutX="53.0" layoutY="505.0" prefHeight="14.0" prefWidth="164.0" text="제품 가격 " />
+      <Button fx:id="btnregister" layoutX="306.0" layoutY="544.0" mnemonicParsing="false" onAction="#register" prefHeight="36.0" prefWidth="426.0" text="제품 등록 " />
+      <Button fx:id="btnupdate" layoutX="204.0" layoutY="139.0" mnemonicParsing="false" onAction="#update" text="수정 " />
+      <Button fx:id="btndelete" layoutX="256.0" layoutY="139.0" mnemonicParsing="false" onAction="#delete" text="삭제 " />
+      <AnchorPane layoutX="53.0" layoutY="217.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #000000;">
+         <children>
+            <ImageView fx:id="pimg" fitHeight="224.0" fitWidth="249.0" layoutX="-10.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
+      <Button fx:id="btnactivation" layoutX="62.0" layoutY="139.0" mnemonicParsing="false" onAction="#activation" prefHeight="22.0" prefWidth="68.0" text="판매중 " />
+   </children>
+</AnchorPane>
