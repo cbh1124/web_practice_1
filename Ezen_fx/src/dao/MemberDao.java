@@ -258,7 +258,7 @@ public  class MemberDao {
 		String sql = "select m_id from member where m_no=?";
 		try {
 			preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setInt(1, m_no);
+			preparedStatement.setInt(1, m_no); // 첫번째 ?에 m_no값을 전달하겠다. 
 			resultSet = preparedStatement.executeQuery();
 			if( resultSet.next() ) { return resultSet.getString(1); } // 현재 아이디가 존재하면
 			else { return ""; } // 현재 아이디가 존재하지 않으면

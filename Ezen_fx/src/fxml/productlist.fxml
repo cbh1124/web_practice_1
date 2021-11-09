@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:controller="controller.ProductlistController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProductlistController">
    <children>
       <TableView fx:id="productlist" layoutX="306.0" layoutY="139.0" prefHeight="405.0" prefWidth="419.0">
         <columns>
@@ -57,5 +57,6 @@
             <ImageView fx:id="pimg" fitHeight="224.0" fitWidth="249.0" layoutX="-10.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
+      <Button fx:id="btnactivation" layoutX="62.0" layoutY="139.0" mnemonicParsing="false" onAction="#activation" prefHeight="22.0" prefWidth="68.0" text="판매중 " />
    </children>
 </AnchorPane>

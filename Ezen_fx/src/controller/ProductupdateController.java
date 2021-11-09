@@ -24,10 +24,10 @@ import javafx.stage.Stage;
 import javafx.stage.FileChooser.ExtensionFilter;
 
 public class ProductupdateController implements Initializable{
-	Product product = ProductlistController.product;  // 1. 테이블뷰에서 클릭된 객체 
+	Product product = ProductlistController.product;  // 1. 테이블뷰에서 클릭된 객체 리스트 컨트롤러의 product객체 값을 가져와야 등록된 객체의 값을 가져올수있음 
 	
 	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
+	public void initialize(URL arg0, ResourceBundle arg1) { // 초기화 
 		txtpname.setText(product.getP_name());			  // 2. 클릭된 객체 제품명 
 		txtpcontents.setText(product.getP_contents());    // 3. 클릭된 객체 제품내용 
 		txtprice.setText(product.getP_price() +"");       // 4. 클릭된 객체 제품가격
@@ -36,8 +36,8 @@ public class ProductupdateController implements Initializable{
 		lblimgpath.setText(product.getP_img());
 		pimage = product.getP_img(); // 수정이 없을경우 기존 이미지 그대로 
 		// 제품에 저장된 카테고리별 라디오 버튼 클릭 세팅 [ setSelect(true) ]
-		if(product.getP_category().equals("의류")) { opt_1.setSelected(true); }
-		if(product.getP_category().equals("신발")) { opt_2.setSelected(true); }
+		if(product.getP_category().equals("의류")) { opt_1.setSelected(true); } // 라디오버튼의 체크 상태 활성화 
+		if(product.getP_category().equals("신발")) { opt_2.setSelected(true); } 
 		if(product.getP_category().equals("가방")) { opt_3.setSelected(true); }
 		if(product.getP_category().equals("ACC")) { opt_4.setSelected(true); }
 		

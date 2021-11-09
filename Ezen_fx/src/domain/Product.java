@@ -13,7 +13,8 @@ public class Product {
 	 private String p_date ;
 	 private int m_no; 
 	 
-	 
+	 private String activation;
+	
 	 // 2. 생성자 
 	 public Product() {
 		// TODO Auto-generated constructor stub
@@ -32,6 +33,10 @@ public class Product {
 		this.p_activation = p_activation;
 		this.p_date = p_date;
 		this.m_no = m_no;
+		
+		if(p_activation == 1) {activation = "판매중";}
+		else if(p_activation == 2) {activation = "거래중";}
+		else if(p_activation == 3) {activation = "거래완료";}
 	}
 
 	
@@ -130,6 +135,16 @@ public class Product {
 
 	public int getM_no() {
 		return m_no;
+	}
+
+
+	public String getActivation() {
+		return activation;
+	}
+
+
+	public void setActivation(String activation) {
+		this.activation = activation;
 	}
 
 

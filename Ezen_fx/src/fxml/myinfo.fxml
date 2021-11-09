@@ -16,12 +16,12 @@
       <Label fx:id="lblid" layoutX="123.0" layoutY="230.0" prefHeight="14.0" prefWidth="37.0" text="id" />
       <Label layoutX="74.0" layoutY="281.0" text="EMAIL" />
       <Label layoutX="74.0" layoutY="256.0" text="NAME" />
-      <TableView layoutX="366.0" layoutY="72.0" prefHeight="200.0" prefWidth="302.0" style="-fx-background-color: #f1f1f1; -fx-border-color: #000000;">
+      <TableView fx:id="myboardlist" layoutX="366.0" layoutY="72.0" prefHeight="200.0" prefWidth="379.0" style="-fx-background-color: #f1f1f1; -fx-border-color: #000000;">
         <columns>
-          <TableColumn prefWidth="75.0" style="-fx-background-color: f1f1f1;" text="num" />
-          <TableColumn prefWidth="75.0" style="-fx-background-color: #f1f1f1;" text="Title" />
-            <TableColumn prefWidth="75.0" style="-fx-background-color: f1f1f1;" text="Date" />
-            <TableColumn prefWidth="75.0" style="-fx-background-color: f1f1f1;" text="View" />
+          <TableColumn prefWidth="37.0" style="-fx-background-color: f1f1f1;" text="num" />
+          <TableColumn prefWidth="206.0" style="-fx-background-color: #f1f1f1;" text="Title" />
+            <TableColumn prefWidth="87.0" style="-fx-background-color: f1f1f1;" text="Date" />
+            <TableColumn prefWidth="47.0" style="-fx-background-color: f1f1f1;" text="View" />
         </columns>
       </TableView>
       <Button fx:id="btnupdate" layoutX="67.0" layoutY="356.0" mnemonicParsing="false" onAction="#update" prefHeight="22.0" prefWidth="176.0" style="-fx-background-color: #f1f1f1; -fx-border-color: #000000;" text="update">
@@ -55,13 +55,13 @@
          </font>
       </Label>
       <Line endX="45.0" layoutX="171.0" layoutY="153.0" startX="-100.0" />
-      <TableView layoutX="367.0" layoutY="331.0" prefHeight="200.0" prefWidth="379.0" style="-fx-background-color: #f1f1f1; -fx-border-color: #000000;">
+      <TableView fx:id="myproductlist" layoutX="367.0" layoutY="331.0" prefHeight="200.0" prefWidth="379.0" style="-fx-background-color: #f1f1f1; -fx-border-color: #000000;">
          <columns>
-            <TableColumn prefWidth="75.0" style="-fx-background-color: f1f1f1;" text="num" />
-            <TableColumn prefWidth="75.0" style="-fx-background-color: #f1f1f1;" text="Name" />
-            <TableColumn prefWidth="75.0" style="-fx-background-color: f1f1f1;" text="Brand" />
-            <TableColumn prefWidth="75.0" style="-fx-background-color: f1f1f1;" text="Category" />
+            <TableColumn prefWidth="65.0" style="-fx-background-color: #f1f1f1;" text="Name" />
+            <TableColumn prefWidth="85.0" style="-fx-background-color: f1f1f1;" text="Category" />
             <TableColumn prefWidth="75.0" style="-fx-background-color: f1f1f1;" text="price" />
+            <TableColumn prefWidth="91.0" style="-fx-background-color: f1f1f1;" text="Activation" />
+            <TableColumn prefWidth="59.0" style="-fx-background-color: f1f1f1;" text="Date" />
          </columns>
       </TableView>
       <Label fx:id="lblpoint" layoutX="124.0" layoutY="305.0" prefHeight="14.0" prefWidth="37.0" text="email" />

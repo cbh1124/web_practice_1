@@ -29,54 +29,62 @@ public class ProductlistController implements Initializable { // 화면 로드[열람]
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		btndelete.setVisible(false);
 		btnupdate.setVisible(false);
-		// 1. DB에서 제품목록 가져오기 
-		ObservableList<Product> products = ProductDao.getProductDao().productlist();
-		
-		// 2. 제품목록을 테이블뷰에 넣어주기 
-		productlist.setItems(products);
-		// 3. 테이블 뷰에 열을 하나씩 가져와서 리스트내 객체에 필드와 연결 
-		TableColumn tc = productlist.getColumns().get(0);
-			tc.setCellValueFactory(new PropertyValueFactory< >("p_name"));
-		tc = productlist.getColumns().get(1);
-			tc.setCellValueFactory(new PropertyValueFactory<>("p_category"));
-		tc = productlist.getColumns().get(2);
-			tc.setCellValueFactory(new PropertyValueFactory<>("p_price"));
-		tc = productlist.getColumns().get(3);
-			tc.setCellValueFactory(new PropertyValueFactory<>("p_activation"));
-		tc = productlist.getColumns().get(4);
-			tc.setCellValueFactory(new PropertyValueFactory<>("p_date"));
-		
-			// 테이블 뷰에서 클릭했을때 아이템 가져오기 
-				// 1. 테이블 뷰에 클릭 이벤트 
-				productlist.setOnMouseClicked( e -> {
-					// 2. 클릭 이벤트가 마우스 클리과 같으면 
-					if(e.getButton().equals(MouseButton.PRIMARY)) {
-						// 3. 테이블 뷰에서 클릭한 모델의 아이템 [ 객체 ]
-						product = productlist.getSelectionModel().getSelectedItem();
-						// 4. 선택된 객체내 이미지경로 가져오기 
-						Image image = new Image(product.getP_img() );
-						pimg.setImage(image);
-						// 5. 그 외 
-						lblpname.setText(product.getP_name());
-						lblpcontents.setText(product.getP_contents());
-							// 천단위 쉼표 문자열 만들기 [String.format("%,d", 값) ]
-						lblpprice.setText(String.format("%,d", product.getP_price() ));
-							// 회원 번호 -> 회원 id
-						String writer = MemberDao.getMemberDao().midcheck(product.getM_no());
-						lblmid.setText( MemberDao.getMemberDao().midcheck(product.getM_no()) );
-						
-						if(MainpageController.getinstance().getloginid().equals(writer) ) {
-							// 로그인 아이디가 등록한 
-							btndelete.setVisible(true);
-							btnupdate.setVisible(true);
-							
-						}else {
-							btndelete.setVisible(false);
-							btnupdate.setVisible(false);
-						}
-					}
-				} );
+		btnactivation.setVisible(false);
+		producttableload();
 				
+	}
+	public void producttableload() {
+		// 1. DB에서 제품목록 가져오기 
+				ObservableList<Product> products = ProductDao.getProductDao().productlist();
+				
+				// 2. 제품목록을 테이블뷰에 넣어주기 
+				productlist.setItems(products);
+				// 3. 테이블 뷰에 열을 하나씩 가져와서 리스트내 객체에 필드와 연결 
+				TableColumn tc = productlist.getColumns().get(0);                   // fxml 기능 선언부의 테이블 뷰에 값을 집어넣는다. 
+					tc.setCellValueFactory(new PropertyValueFactory< >("p_name"));
+				tc = productlist.getColumns().get(1);
+					tc.setCellValueFactory(new PropertyValueFactory<>("p_category"));
+				tc = productlist.getColumns().get(2);
+					tc.setCellValueFactory(new PropertyValueFactory<>("p_price"));
+				tc = productlist.getColumns().get(3);
+					tc.setCellValueFactory(new PropertyValueFactory<>("activation"));
+				tc = productlist.getColumns().get(4);
+					tc.setCellValueFactory(new PropertyValueFactory<>("p_date"));
+				
+					// 테이블 뷰에서 클릭했을때 아이템 가져오기 
+						// 1. 테이블 뷰에 클릭 이벤트 
+						productlist.setOnMouseClicked( e -> {
+							// 2. 클릭 이벤트가 마우스 클리과 같으면 
+							if(e.getButton().equals(MouseButton.PRIMARY)) {
+								// 3. 테이블 뷰에서 클릭한 모델의 아이템 [ 객체 ]
+								product = productlist.getSelectionModel().getSelectedItem();
+								// 4. 선택된 객체내 이미지경로 가져오기 
+								Image image = new Image(product.getP_img() ); // 
+								pimg.setImage(image); // 이미지 기능 정의 객체 
+								// 5. 그 외 
+								lblpname.setText(product.getP_name());   // 라벨에 테이블 뷰에 가져왔었던 이름을 가져옴
+								lblpcontents.setText(product.getP_contents()); // 라벨에 테이블 뷰에 가져왔었던 내용을 가져옴 
+									// 천단위 쉼표 문자열 만들기 [String.format("%,d", 값) ] 
+								lblpprice.setText(String.format("%,d", product.getP_price() )); // 라벨에 테이블 뷰에 가져왔었던 가격을 가져옴 
+									// 회원 번호 -> 회원 id
+								String writer = MemberDao.getMemberDao().midcheck(product.getM_no()); // 테이블의 회원의 번호를 집어넣어서 회원 id와 일치한다면 아이디 반환
+								lblmid.setText( MemberDao.getMemberDao().midcheck(product.getM_no()) );
+								
+								if(MainpageController.getinstance().getloginid().equals(writer) ) {
+									// 로그인 아이디가 등록한 
+									btndelete.setVisible(true);
+									btnupdate.setVisible(true);
+									btnactivation.setVisible(true);
+								}else {
+									btndelete.setVisible(false);
+									btnupdate.setVisible(false);
+									btnactivation.setVisible(false);
+								}
+								
+								// 버튼 테스트 
+								btnactivation.setText(product.getActivation());
+							}
+						} );
 	}
 	public static Product product;
 	
@@ -106,6 +114,34 @@ public class ProductlistController implements Initializable { // 화면 로드[열람]
 
     @FXML
     private TableView<Product> productlist;
+    
+    @FXML
+    private Button btnactivation;
+    
+    @FXML
+    void activation(ActionEvent event) {
+    	btnactivation.setText(product.getActivation()); // 1. 선택 제품의 상태가 버튼 텍스트에 표시 (객체 주소가 나오고)
+    	System.out.println(product.getActivation());
+    	int pa = product.getP_activation(); // 2. 선택 제품의 상태를 가져옴 (객체 주소참조의 리얼값이 나옴)
+    	int ch = pa + 1;  // 3. 선택 제품의 상태를 변경 
+    	
+    	if( ch > 3) ch = 1;
+    	if(ch == 1) { // 4. 변경된 상태가 1이면 판매중 업데이트 처리 
+    		ProductDao.getProductDao().activationupdate(1, product.getP_no()); // 해당 제품의 상태 변경하기 위해서는 해당 제품의 번호를 찾아서 상태값을 바꿔줌
+    		producttableload(); // 테이블 새로고침 
+    		btnactivation.setText("판매중"); // 버튼 텍스트 변경 
+    	}
+    	if(ch == 2) { 
+    		ProductDao.getProductDao().activationupdate(2, product.getP_no());
+    		producttableload();
+    		btnactivation.setText("거래중");
+    	}
+    	if(ch == 3) {
+    		ProductDao.getProductDao().activationupdate(3, product.getP_no());
+    		producttableload();
+    		btnactivation.setText("거래완료");
+    	}
+    }
 
     @FXML
     void delete(ActionEvent event) {

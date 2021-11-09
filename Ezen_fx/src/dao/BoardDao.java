@@ -56,13 +56,15 @@ public class BoardDao {
 	}
 	
 		// 2. 게시물 조회 메소드 
-	public ObservableList<Board> boardlist(){
+	public ObservableList<Board> boardlist( ){
+		
 		ObservableList<Board> boards = FXCollections.observableArrayList();
 		
 		// 0 . 리스트 선언 
 		ArrayList<Board> arrayList = new ArrayList<Board>();
 		
 		// 1. 조건 없이 모두 가져오기 
+		
 		String sql = "select * from board order by b_no desc";
 		try {
 			preparedStatement = connection.prepareStatement(sql);
@@ -173,6 +175,36 @@ public class BoardDao {
 			
 		}return replys;
 	}
+	
+	// 9. 로그인된 회원의 게시물 출력 
+	public ObservableList<Board> myboardlist(String id){
+		
+		ObservableList<Board> boards = FXCollections.observableArrayList();
+		
+		// 0 . 리스트 선언 
+		ArrayList<Board> arrayList = new ArrayList<Board>();
+		
+		// 1. 조건 없이 모두 가져오기 
+		
+		String sql = "select * from board where b_write = ? order by b_no desc";
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, id);
+			resultSet = preparedStatement.executeQuery();
+			// 2. 
+			while(resultSet.next()){
+				// 쿼리 결과내 레코드가 없을때 까지 반복 
+				Board board = new Board(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getString(5), resultSet.getInt(6));
+				// 객체를 리스트에 담기 
+				boards.add(board);
+				
+			}
+			return boards;
+		
+		
+		}catch (Exception e) {} return boards;
+	}
+	
 	
 	
 	
