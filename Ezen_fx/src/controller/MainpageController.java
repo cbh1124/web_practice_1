@@ -97,12 +97,13 @@ public class MainpageController implements Initializable{
 
     @FXML 
     void chatting(ActionEvent event) {
-    
+    	loadpage("chatting");
     }
 
     @FXML
     void home(ActionEvent event) {
     	loadpage("home");
+    	System.out.println("홈 발동 되나??");
     }
 
     @FXML// 로그아웃 메소드 [ 현재 스테이지 닫고 -> login 스테이지 열기 ] 
@@ -150,7 +151,7 @@ public class MainpageController implements Initializable{
 
     @FXML
     void notice(ActionEvent event) {
-
+    	
     }
 
     @FXML

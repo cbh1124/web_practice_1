@@ -4,8 +4,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import domain.Product;
+import domain.ProductDate;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -163,6 +166,58 @@ public class ProductDao {
 			
 		}return false;
 	}
+	
+	// 7.전체 제품 수 반환
+		public int productcount() {
+			String sql = "select count(*) from product";
+			try {
+				preparedStatement = connection.prepareStatement(sql);
+				resultSet = preparedStatement.executeQuery();
+				if( resultSet.next() ) {
+					return resultSet.getInt(1);
+				}
+			}catch (Exception e) {}
+			return 0;
+		}
+		
+		// 8. 날짜별 제품수 반환 
+		public ArrayList<ProductDate> productdatelist(){
+			ArrayList< ProductDate > productDates = new ArrayList<>();
+			String sql = "select substring_index(p_date,' ' , 1 ) , "+ 
+							"count(*) from product group by substring_index( p_date,' ' , 1 )";
+			try {
+				preparedStatement = connection.prepareStatement(sql);
+				resultSet =  preparedStatement.executeQuery();
+				while( resultSet.next() ) {
+					ProductDate date = new ProductDate( resultSet.getString(1), resultSet.getInt(2) );
+					productDates.add(date);
+				}
+				return productDates;
+			}catch (Exception e) {} return productDates;
+			
+		}
+		// 9. 카테고리별 제품수 반환 
+		public HashMap<String, Integer> productcategorylist(){
+			
+			HashMap<String, Integer> hashMap = new HashMap<>();
+			
+			String sql ="select p_category , count(*) "
+					+ "from product "
+					+ "group by p_category";
+			try {
+				preparedStatement = connection.prepareStatement(sql);
+				resultSet = preparedStatement.executeQuery();
+				
+				while( resultSet.next() ) {
+					// 검색된 레코드를 map 컬렉션에 넣기
+					// [ key : 카테고리 , value : 개수 ]
+					hashMap.put( resultSet.getString(1), 
+							resultSet.getInt(2) );
+				}
+				return hashMap;
+			}catch (Exception e) {} return hashMap;
+		}
+	
 	
 
 	

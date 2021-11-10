@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BoardviewController">
+   <children>
+      <TextField fx:id="txttitle" editable="false" layoutX="63.0" layoutY="106.0" prefHeight="29.0" prefWidth="654.0" style="-fx-border-color: #000000;" />
+      <TextArea fx:id="txtcontents" editable="false" layoutX="63.0" layoutY="143.0" prefHeight="248.0" prefWidth="654.0" style="-fx-border-color: #000000;" />
+      <Button fx:id="btnupdate" layoutX="63.0" layoutY="393.0" mnemonicParsing="false" onAction="#update" prefHeight="24.0" prefWidth="73.0" style="-fx-background-color: #f1f1f1; -fx-border-color: #000000;" text="UPDATE" />
+      <Button fx:id="btncancel" layoutX="630.0" layoutY="571.0" mnemonicParsing="false" onAction="#cancel" prefHeight="24.0" prefWidth="88.0" style="-fx-background-color: #f1f1f1; -fx-border-color: #000000;" text="CANCEL" />
+      <Label layoutX="63.0" layoutY="17.0" prefHeight="14.0" prefWidth="105.0" text="My">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="63.0" layoutY="46.0" prefHeight="29.0" prefWidth="194.0" text="Community View">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.37129223346710205" green="0.022538986057043076" blue="0.9736841917037964" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Line endX="45.0" layoutX="164.0" layoutY="90.0" startX="-100.0" />
+      <Button fx:id="btndelete" layoutX="160.0" layoutY="393.0" mnemonicParsing="false" onAction="#delete" prefHeight="24.0" prefWidth="73.0" style="-fx-background-color: #f1f1f1; -fx-border-color: #000000;" text="Delete" />
+      <TableView fx:id="replylist" layoutX="64.0" layoutY="464.0" prefHeight="103.0" prefWidth="654.0">
+        <columns>
+          <TableColumn prefWidth="30.0" text="No" />
+          <TableColumn prefWidth="79.0" text="write" />
+            <TableColumn prefWidth="443.0" text="Contents" />
+            <TableColumn prefWidth="101.0" text="Date" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnreplywrite" layoutX="630.0" layoutY="427.0" mnemonicParsing="false" onAction="#replywrite" prefHeight="24.0" prefWidth="88.0" style="-fx-background-color: #f1f1f1; -fx-border-color: #000000;" text="Reply write" />
+      <Label fx:id="lblwriter" layoutX="439.0" layoutY="85.0" prefHeight="14.0" prefWidth="94.0" text="작성자 " />
+      <Label fx:id="lblday" layoutX="531.0" layoutY="85.0" prefHeight="14.0" prefWidth="117.0" text="작성일" />
+      <Label fx:id="lblview" layoutX="646.0" layoutY="85.0" prefHeight="14.0" prefWidth="73.0" text="조회수" />
+      <TextArea fx:id="txtreply" layoutX="64.0" layoutY="420.0" prefHeight="41.0" prefWidth="558.0" promptText="댓글 입력" />
+   </children>
+</AnchorPane>

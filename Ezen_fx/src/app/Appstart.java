@@ -16,7 +16,7 @@ public class Appstart extends Application{
 		Parent parent = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
 		Scene scene = new Scene(parent);
 		stage.setScene(scene);
-			stage.setResizable(false); //  스테이지 크기 고정 
+			stage.setResizable(false); //  스테이지 크기 고정
 			stage.setTitle("Nike"); // 스테이지 이름 
 			// 스테이지 아이콘 
 				// 1. 이미지 불러오기 
