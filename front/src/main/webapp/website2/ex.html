@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+<style>
+#wrap {
+	width: 2000px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+header {
+	width: 1000px;
+	height: auto;
+	display: flex;
+	flex-direction: row; /* 가로배치 */
+	/* flex-direction: column; /* 세로배치 */
+	border: 1px solid #000;
+	justify-content: center;
+}
+
+.aa {
+	width: 30%;
+	/* width: 300px; */
+	height: 300px;
+	background-color: blue;
+	border: 1px solid #000;
+	background-color: blue;
+}
+
+.bb {
+	width: 70%;
+	/* width: 700px; */
+	height: 300px;
+	background-color: red;
+	border: 1px solid #000;
+}
+
+.cc {
+	height: 30%;
+	border: 1px solid #000;
+}
+
+.dd {
+	height: 70%;
+	border: 1px solid #000;
+}
+
+nav {
+	width: 1000px;
+	height: 100%;
+	border: 1px solid #000;
+	background-color: orange;
+	height: 100%;
+	position: relative;
+}
+
+.banner {
+	width: 1000px;
+	height: 300px;
+	border: 1px solid #000;
+	background-color: gold;
+	border: 1px solid #000;
+	background-image: url("");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.btn {
+	width: 50px;
+	height: 50px;
+	border: 1px solid #000;
+	background-color: green;
+	position: absolute;
+	top: 80%;
+	left: 80%;
+	transform: translate(-50%, -50%);
+}
+
+main {
+	width: 1000px;
+	height: auto; display : flex;
+	flex-direction: row;
+	display: flex;
+}
+
+.main1 {
+	width: 20%;
+	height: 500px;
+	border: 1px solid #000;
+	/* display: flex;
+	flex-direction: column;  */
+}
+
+/* .main1  div:nth-child(1) {
+background-color: red;
+height: 100px;
+}
+
+.main1  div:nth-child(2) {
+background-color: green;
+height: 100px;
+}
+
+.main1  div:nth-child(3) {
+background-color: blue;
+height: 100px;
+} */
+
+.main1  div:nth-of-type(1) {
+background-color: red;
+height: 100px;
+}
+
+.main1  div:nth-of-type(2) {
+background-color: green;
+height: 100px;
+}
+
+.main1  div:nth-of-type(3) {
+background-color: blue;
+height: 100px;
+}
+
+
+
+
+
+.main2 {
+	width: 40%;
+	height: 500px;
+	border: 1px solid #000;
+}
+
+.main3 {
+	width: 40%;
+	height: 500px;
+	border: 1px solid #000;
+}
+
+
+</style>
+</head>
+<body>
+	<div id="wrap">
+		<header>
+
+			<div class="aa"></div>
+			<div class="bb">
+
+				<div class="cc"></div>
+				<div class="dd"></div>
+			</div>
+		</header>
+		<nav>
+			<div class="banner">
+				<!-- <img alt="이미지배너" src=""> -->
+			</div>
+			<div class="btn"></div>
+		</nav>
+		<main>
+			<div class="main1">
+				<div>상</div>
+				
+				<div>중</div>
+
+				<div>하</div>
+			</div>
+			<div class="main2"></div>
+			<div class="main3"></div>
+		</main>
+		<footer></footer>
+	</div>
+
+</body>
+</html>

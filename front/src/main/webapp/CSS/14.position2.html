@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style type="text/css">
+
+	#a,#b,#c,#d,#e,#f {
+		
+		width : 100px;
+        height : 60px;
+        background-color : yellow;
+        border : solid 1px black;
+	
+	}
+	
+	#parent{
+		width : 1000px;
+    	height : 1000px;
+    	border : solid 1px red;
+    	position : absolute; /*현div 기준으로 절대값 지정 가능 */
+	}
+	
+	#a{
+		position : absolute; /*상대 위치 (기준 : 현div 시작점 위치 ) */
+        left : 433px; top : 100px;
+        
+	}
+	
+	#b{
+		position : absolute; /*상대 위치 (기준 : 현div 시작점 위치 ) */
+        left : 200px; top : 30px;
+	}
+	
+	#c{
+		position : absolute; /*상대 위치 (기준 : 현div 시작점 위치 ) */
+        left : 4px; top : 30px;
+	}
+	
+	#d{
+		position : absolute; /*상대 위치 (기준 : 현div 시작점 위치 ) */
+        left : 433px; top : 30px;
+	}
+	
+	#e{
+		position : absolute; /*상대 위치 (기준 : 현div 시작점 위치 ) */
+        left : 433px; top : 30px;
+	}
+	
+	#f{
+		position : absolute; /*상대 위치 (기준 : 현div 시작점 위치 ) */
+        left : 433px; top : 500px;
+	}
+
+
+</style>
+	
+	
+
+</head>
+<body>
+
+	<div id = "parent">
+		<div id = "a">a  </div>
+		<div id = "b">b  </div>
+		<div id = "c">c  </div>
+		<div id = "d">d  </div>
+		<div id = "e">e  </div>
+		<div id = "f">f  </div>	
+	
+	</div>
+
+
+</body>
+</html>
