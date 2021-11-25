@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+	<style type="text/css">
+		*{margin: 0; padding : 0;} /* 여백 초기값 제거*/
+		 
+		header, foooter{
+			height: 70px; width:  100%;
+			background-color: skyblue; padding-top : 30px;
+			text-align: center; box-sizing: border-box;
+			position : fixed;  /*위치 고정 */
+		}
+		
+		#main{
+			padding : 80px 20px;
+			line-height: 1.5rem;   /*글자 배율*/
+		
+		}
+		
+		footer{
+			background-color: pink;
+			bottom : 0; /* position 사용할경우 아래에서 간격 */
+		}
+	
+		img{
+			width: 50%; max-width: 350px; /*배율 => 최대 크기 */ 
+			float: left;    /*p문단에서 같이 배치하기 위해서 */
+			margin: 5px 15px 5px 0px;  /*사진 주변 바깥 여백*/
+		}
+		/*플로팅 박스 */
+		
+		.divbox{
+			width: 250px; height: 150px;
+			border: solid 1px red; background-color: red;
+			position : absolute; right: 50px; top: 150px;
+			opacity: 0.9;
+			color : white;   text-align: center; box-sizing: border-box;
+			z-index: 10;     /*겹쳤을때(float) 우선순위 */
+		}
+		.divbox .close{float: right; margin: 10px;}
+		.divbox .close:hover{ cursor: pointer;}
+		.divbox p {margin-top : 50px; }
+	
+	</style>
+	
+</head>
+<body>
+	
+	<header>여기는 헤더 부분 </header>
+	
+	<div>
+		<p>개는 식육목 갯과(Canidae) 개속(Canis)의 늑대(Canis lupus)[10] 가운데 특히 야생성이 적고 인간에게 친숙한 아종(C. lupus familiaris)을 이르는 말이다. 아종명 familiaris는 '사육되는'이라는 뜻으로, 닭의 아종명 domesticus처럼 길들여진 동물 종들에게 으레 붙는 학명이다.	</p>
+		<p>개는 식육목 갯과(Canidae) 개속(Canis)의 늑대(Canis lupus)[10] 가운데 특히 야생성이 적고 인간에게 친숙한 아종(C. lupus familiaris)을 이르는 말이다. 아종명 familiaris는 '사육되는'이라는 뜻으로, 닭의 아종명 domesticus처럼 길들여진 동물 종들에게 으레 붙는 학명이다. </p>
+		<img src="img/강아지.jpg" alt="" />
+		<p>개와 야생 늑대의 유전적 차이는 불과 0.04% 미만[12]으로, 인간의 인종간 유전적 차이인 0.1%보다도 적다.</p>
+		<p>개가 인류와 함께 하게 된 것은 계통 전체의 역사에 비하면 극히 찰나의 순간에 불과하기 때문에 늑대로부터 독립된 종으로는 분화하지 않았다.[</p>
+		<p> 실제로도 개가 야생화되면 자연 상태의 늑대와 거의 비슷한 모습이나 생태를 보인다</p>
+	</div>
+	
+	<!-- 플로팅 박스 -->
+	<div class = "divbox">
+		<div class="close">X</div>
+		<p>여기는 플로팅 박스 </p>
+	</div>
+	<footer> 여기는 푸터 </footer>
+	
+	<!-- 최신버전  jquery 불러오기 -->
+		 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<!-- js 사용 -->
+			<script type = "text/javascript">
+				$(".close").on("click", function(){
+					$(".divbox").fadeOut();
+				})
+				// 자바 스크립트 주석 
+				// $(".클래스명")
+					//.on : 이벤트 
+					//("클릭", 함수(){실행문})
+						// $(".클래스명").fadeOut() 해당 
+						
+			</script>
+			
+			
+			
+		
+</body>
+</html>
