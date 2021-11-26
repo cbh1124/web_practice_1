@@ -1,0 +1,55 @@
+@charset "EUC-KR";
+
+/* À¥ ÆùÆ® */
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    border : solid 1px red;
+}
+
+*{font-family: Cafe24Ssurround;
+	border : solid 1px red;
+	}
+
+header{
+	
+	border-bottom: solid 1px #eeeeee;
+	line-height : 1;
+	
+}
+header-logo{
+	font-size : 2.25rem;
+	
+}
+.header-topmenu{
+	font-size  : 0.25rem;
+	
+}
+
+.carousel-item img{
+	width: 100%;
+}
+
+.item{
+	font-size : 0.5rem;
+	line-height: 150%;
+}
+
+.price {
+	border-top : solid 1px #eeeeee;
+	text-decoration: line-through;
+}
+.main-footer{
+	font-size : 0.6rem;
+	border-top : 1px solid #eeeeee;
+	padding: 3rem;
+	 
+}
+
+.carousel-item img{
+	width: 100%;
+	margin-top: 120px;
+}
+
