@@ -1,51 +1,51 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<!-- <footer class ="text-dark bg-light text-lg-start main-footer fixed-bottom bg-white"> °íÁ¤ ÇÒ°æ¿ì ÇÏÁö¸¸ ¾È¿¹»µ¼­ ¾ÈÇÔ -->
+	<!-- <footer class ="text-dark bg-light text-lg-start main-footer fixed-bottom bg-white"> ê³ ì • í• ê²½ìš° í•˜ì§€ë§Œ ì•ˆì˜ˆë»ì„œ ì•ˆí•¨ -->
 	<footer class ="text-dark bg-light text-lg-start main-footer ">
 		
-		<div class="container text-md-start"> <!-- ÇªÅÍ ³»¿ë¹® -->
-			<div class = "row"> <!-- ±×¸®µå Çà start -->
-				<div class = "col-md-3 mb-4"> <!-- ±×¸®µå 3 -->
+		<div class="container text-md-start"> <!-- í‘¸í„° ë‚´ìš©ë¬¸ -->
+			<div class = "row"> <!-- ê·¸ë¦¬ë“œ í–‰ start -->
+				<div class = "col-md-3 mb-4"> <!-- ê·¸ë¦¬ë“œ 3 -->
 					<h3 class = "text-uppercase fw-bold mb-4">
 						<i class="far fa-gem me-3"></i>
-						¾È»ê ¼îÇÎ¸ô 
+						ì•ˆì‚° ì‡¼í•‘ëª° 
 					</h3>
 					<p>
-						¿©·¯ºÐÀÌ °¡²Ù¾î ³ª°¡´Â Áö½ÄÀÇ ³ª¹«
-						³ª¹«À§Å°¿¡ ¿À½Å °ÍÀ» È¯¿µÇÕ´Ï´Ù!
-						´ÙÅ©´Â È¸»öÀÌ ¾Æ´Ï¶ó °ËÁ¤ÀÔ´Ï´Ù!
-						³ª¹«À§Å°´Â ´©±¸³ª ±â¿©ÇÒ ¼ö ÀÖ´Â À§Å°ÀÔ´Ï´Ù.
-						°ËÁõµÇÁö ¾Ê¾Ò°Å³ª ÆíÇâµÈ ³»¿ëÀÌ ÀÖÀ» ¼ö ÀÖ½À´Ï´Ù.
+						ì—¬ëŸ¬ë¶„ì´ ê°€ê¾¸ì–´ ë‚˜ê°€ëŠ” ì§€ì‹ì˜ ë‚˜ë¬´
+						ë‚˜ë¬´ìœ„í‚¤ì— ì˜¤ì‹  ê²ƒì„ í™˜ì˜í•©ë‹ˆë‹¤!
+						ë‹¤í¬ëŠ” íšŒìƒ‰ì´ ì•„ë‹ˆë¼ ê²€ì •ìž…ë‹ˆë‹¤!
+						ë‚˜ë¬´ìœ„í‚¤ëŠ” ëˆ„êµ¬ë‚˜ ê¸°ì—¬í•  ìˆ˜ ìžˆëŠ” ìœ„í‚¤ìž…ë‹ˆë‹¤.
+						ê²€ì¦ë˜ì§€ ì•Šì•˜ê±°ë‚˜ íŽ¸í–¥ëœ ë‚´ìš©ì´ ìžˆì„ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
 					</p>
 				</div>
 				
-					<div class="col-md-2 offset-1 mb-4"> <!-- ±×¸®µå 3 -->
-						<h3 class ="mb-4"> ÀÔ±ÝÁ¤º¸</h3>
+					<div class="col-md-2 offset-1 mb-4"> <!-- ê·¸ë¦¬ë“œ 3 -->
+						<h3 class ="mb-4"> ìž…ê¸ˆì •ë³´</h3>
 						<p>
-							±¹¹Î 103001-04-252532 <br>
-							½ÅÇÑ 140-011-856224 <br>
-							³óÇù 351-5145-0631-13 <br>
-							¿¹±ÝÁÖ: (ÁÖ)ÀÚµ­ <br>
+							êµ­ë¯¼ 103001-04-252532 <br>
+							ì‹ í•œ 140-011-856224 <br>
+							ë†í˜‘ 351-5145-0631-13 <br>
+							ì˜ˆê¸ˆì£¼: (ì£¼)ìžëŽ… <br>
 						</p>
 					</div>
 					
-					<div class="col-md-3 mb-4"> <!-- ±×¸®µå 3 -->
-						<h3 class="mb-4" > È¯ºÒ/ ±³È¯</h3>
+					<div class="col-md-3 mb-4"> <!-- ê·¸ë¦¬ë“œ 3 -->
+						<h3 class="mb-4" > í™˜ë¶ˆ/ êµí™˜</h3>
 						<p>
-							ºÎ»ê½Ã ±ÝÁ¤±¸ ºÎ»ê´ëÇÐ·Î62-1 4Ãþ
-							Áö¹ø: ºÎ»ê½Ã ±ÝÁ¤±¸ ÀåÀüµ¿ 400-31¹øÁö 4Ãþ¤¤¤¤¤¤
-							ÀÚ¼¼ÇÑ ±³È¯¡¤¹ÝÇ°ÀýÂ÷ ¾È³»´Â ¹®ÀÇ¶õ ¹× °øÁö»çÇ×À» Âü°íÇØÁÖ¼¼¿ä
+							ë¶€ì‚°ì‹œ ê¸ˆì •êµ¬ ë¶€ì‚°ëŒ€í•™ë¡œ62-1 4ì¸µ
+							ì§€ë²ˆ: ë¶€ì‚°ì‹œ ê¸ˆì •êµ¬ ìž¥ì „ë™ 400-31ë²ˆì§€ 4ì¸µã„´ã„´ã„´
+							ìžì„¸í•œ êµí™˜Â·ë°˜í’ˆì ˆì°¨ ì•ˆë‚´ëŠ” ë¬¸ì˜ëž€ ë° ê³µì§€ì‚¬í•­ì„ ì°¸ê³ í•´ì£¼ì„¸ìš”
 						</p>
 					</div>
 					
-					<div class="col-md-3 my-5"> <!-- ±×¸®µå 3 md mb m my ¹«½¼Â÷ÀÌ..-->
+					<div class="col-md-3 my-5"> <!-- ê·¸ë¦¬ë“œ 3 md mb m my ë¬´ìŠ¨ì°¨ì´..-->
 						<a href="#" class="me-4 mx-1"><i class ="fab fa-facebook-f fa-2x"> </i></a>
 						<a href="#" class="me-4 mx-1"><i class ="fab fa-twitter fa-2x"> </i></a>
 						<a href="#" class="me-4 mx-1"><i class ="fab fa-google fa-2x"> </i></a>
@@ -53,7 +53,7 @@
 						<a href="#" class="me-4 mx-1"><i class ="fab fa-github fa-2x"> </i></a>
 					</div>
 					
-			</div> <!-- ±×¸®µå Çà end -->
+			</div> <!-- ê·¸ë¦¬ë“œ í–‰ end -->
 		</div>
 		
 	</footer>

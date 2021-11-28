@@ -1,16 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 
-   <!-- ºÎÆ®½ºÆ®·¦ÀÇ css °¡Á®¿À±â   -->
-   <!--  Á÷Á¢ ÀÛ¼ºÇÑ css °¡Á®¿À±â  -->
+   <!-- ë¶€íŠ¸ìŠ¤íŠ¸ëž©ì˜ css ê°€ì ¸ì˜¤ê¸°   -->
+   <!--  ì§ì ‘ ìž‘ì„±í•œ css ê°€ì ¸ì˜¤ê¸°  -->
    <link href="CSS/main.css" rel = "stylesheet">
-   	<!-- »ó´ë°æ·Î [ÇöÀçÆÄÀÏ À§Ä¡ ±âÁØ] -->
-   	<!-- ¾ÆÀÌÄÜ »ç¿ë : ÆùÆ® ¾î½æ ¸µÅ© -->
+   	<!-- ìƒëŒ€ê²½ë¡œ [í˜„ìž¬íŒŒì¼ ìœ„ì¹˜ ê¸°ì¤€] -->
+   	<!-- ì•„ì´ì½˜ ì‚¬ìš© : í°íŠ¸ ì–´ì¸ ë§í¬ -->
    	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
    	
    	
@@ -18,52 +18,52 @@
    
 </head>
 <body>
-	<!-- Çì´õ start  -->
-	<div class = "fixed-top bg-white"> <!-- Çì´õ °íÁ¤ -->
-		<div class = "container"> <!-- ÀüÃ¼ Çì´õ -->
-			<header class="py-3"> <!-- »ó´Ü ¸Þ´º -->
+	<!-- í—¤ë” start  -->
+	<div class = "fixed-top bg-white"> <!-- í—¤ë” ê³ ì • -->
+		<div class = "container"> <!-- ì „ì²´ í—¤ë” -->
+			<header class="py-3"> <!-- ìƒë‹¨ ë©”ë‰´ -->
 				<div class = "row justify-content-between align-items-center" >
 					<div class = "col-4 offset-4 text-center">
-						<a href="main.jsp" class="text-dark header-logo"> ¾È»ê¼îÇÎ¸ô.</a>
+						<a href="main.jsp" class="text-dark header-logo"> ì•ˆì‚°ì‡¼í•‘ëª°.</a>
 					</div>
 					<div class ="col-4 d-flex justify-content-end aligems-center">
 						<ul class = "nav header-topmenu">
-							<li> <a href="login.jsp" class="text-info mx-1"> ·Î±×ÀÎ </a> | </li>
-							<li> <a href="signin.jsp" class="text-info mx-1"> È¸¿ø°¡ÀÔ </a> | </li>
-							<li> <a href="#" class="text-info mx-1"> ³ªÀÇ¼îÇÎ </a> | </li>
+							<li> <a href="login.jsp" class="text-info mx-1"> ë¡œê·¸ì¸ </a> | </li>
+							<li> <a href="signin.jsp" class="text-info mx-1"> íšŒì›ê°€ìž… </a> | </li>
+							<li> <a href="#" class="text-info mx-1"> ë‚˜ì˜ì‡¼í•‘ </a> | </li>
 						</ul>
 					</div>
 				</div>
 			</header>
 			
-			<nav class = "navbar navbar-expand-lg navbar-light bg-white"> <!-- º» ¸Þ´º -->
+			<nav class = "navbar navbar-expand-lg navbar-light bg-white"> <!-- ë³¸ ë©”ë‰´ -->
 				<button class = "navbar-toggler" type ="button" data-toggle = "collapse" data-target = "#header-mainmenu">
 					<span class = "navbar-toggler-icon"></span>
 				
 				</button>
 				<div class="collapse navbar-collapse" id="header-mainmenu">
 					<ul class = " navbar-nav col-lg-12 justify-content-between">
-						<li class = "nav-item"> <a href="#" class ="nav-link">º£½ºÆ® »óÇ°</a></li>
-						<li class = "nav-item"> <a href="#" class ="nav-link">¼öÆ®</a></li>
-						<li class = "nav-item"> <a href="#" class ="nav-link">¾Æ¿ìÅÍ </a></li>
-						<li class = "nav-item"> <a href="#" class ="nav-link">»óÀÇ</a></li>
-						<li class = "nav-item"> <a href="#" class ="nav-link">´ÏÆ®</a></li>
-						<li class = "nav-item"> <a href="#" class ="nav-link">¼ÅÃ÷</a></li>
-						<li class = "nav-item"> <a href="#" class ="nav-link">¹ÙÁö</a></li>
-						<li class = "nav-item"> <a href="#" class ="nav-link">½Å¹ß</a></li>
-						<li class = "nav-item"> <a href="#" class ="nav-link">¾Ç¼¼¼­¸®</a></li>
-						<li class = "nav-item"> <a href="#" class ="nav-link">½ºÅ¸ÀÏ</a></li>
-						<li class = "nav-item"> <a href="#" class ="nav-link">¸®ºä</a></li>
-						<li class = "nav-item"> <a href="board.jsp" class ="nav-link">°í°´¼¾ÅÍ</a></li>
+						<li class = "nav-item"> <a href="#" class ="nav-link">ë² ìŠ¤íŠ¸ ìƒí’ˆ</a></li>
+						<li class = "nav-item"> <a href="#" class ="nav-link">ìˆ˜íŠ¸</a></li>
+						<li class = "nav-item"> <a href="#" class ="nav-link">ì•„ìš°í„° </a></li>
+						<li class = "nav-item"> <a href="#" class ="nav-link">ìƒì˜</a></li>
+						<li class = "nav-item"> <a href="#" class ="nav-link">ë‹ˆíŠ¸</a></li>
+						<li class = "nav-item"> <a href="#" class ="nav-link">ì…”ì¸ </a></li>
+						<li class = "nav-item"> <a href="#" class ="nav-link">ë°”ì§€</a></li>
+						<li class = "nav-item"> <a href="#" class ="nav-link">ì‹ ë°œ</a></li>
+						<li class = "nav-item"> <a href="#" class ="nav-link">ì•…ì„¸ì„œë¦¬</a></li>
+						<li class = "nav-item"> <a href="#" class ="nav-link">ìŠ¤íƒ€ì¼</a></li>
+						<li class = "nav-item"> <a href="#" class ="nav-link">ë¦¬ë·°</a></li>
+						<li class = "nav-item"> <a href="board.jsp" class ="nav-link">ê³ ê°ì„¼í„°</a></li>
 						<li class = "nav-item"> <a href="#" class ="nav-link"><i class="fas fa-search "></i></a></li>
-						<!-- fa-3x ÆùÆ® Å©±â Ãß°¡-->	
+						<!-- fa-3x í°íŠ¸ í¬ê¸° ì¶”ê°€-->	
 					</ul>
 				</div>
 			</nav>
 		
 		</div>
 	</div>
-	<!-- Çì´õ end  -->
+	<!-- í—¤ë” end  -->
 	
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
