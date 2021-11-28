@@ -1,18 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 	<%@include file="header.jsp" %>
 	
-	<!-- Ä³·¯¼¿ start -->
+	<!-- ìºëŸ¬ì…€ start -->
 	<div class = "carouselcontent" data-ride="carousel" data-interval ="2000">
 	
-		<!-- ÇöÀç ½½¶óÀÌµå À§Ä¡ ¾Ë·ÁÁÖ´Â ¸Þ¼Òµå -->
+		<!-- í˜„ìž¬ ìŠ¬ë¼ì´ë“œ ìœ„ì¹˜ ì•Œë ¤ì£¼ëŠ” ë©”ì†Œë“œ -->
 		<ol class = "carousel-indicators">
 			<li data-target="#carouselcontent" data-slide-to="0" class="active"></li>
 			<li data-target="#carouselcontent" data-slide-to="1" ></li>
@@ -20,7 +20,7 @@
 			<li data-target="#carouselcontent" data-slide-to="3" ></li>
 		</ol>
 		
-		<!--  Ä³·¯¼¿ ÀÌ¹ÌÁö ³Ö±â  -->
+		<!--  ìºëŸ¬ì…€ ì´ë¯¸ì§€ ë„£ê¸°  -->
 		<div class= "carousel-inner">
 			<div class = "carousel-item active"><img src = "img/2021_11_26_1.jpg"> </div>
 			<div class = "carousel-item"><img src = "img/2021_11_26_2.jpg"> </div>
@@ -28,7 +28,7 @@
 			<div class = "carousel-item"><img src = "img/2021_11_26_4.gif"> </div>
 		</div>
 		
-		<!-- Ä³·¯¼¿ ÀÌ¹ÌÁö ÀÌµ¿ ¹öÆ° -->
+		<!-- ìºëŸ¬ì…€ ì´ë¯¸ì§€ ì´ë™ ë²„íŠ¼ -->
 		<a class="carousel-control-prev" href="#carouselcontent" data-slide="prev">
 			<span class="carousel-control-prev-icon"></span>
 		</a>
@@ -36,84 +36,84 @@
 			<span class="carousel-control-next-icon"></span>
 		</a>
 	</div>
-	<!-- Ä³·¯¼¿ end -->
+	<!-- ìºëŸ¬ì…€ end -->
 	<hr>
 	<br> <br>
 	<div class="container text-center">
 		<h3>New Arrival</h3>
-		<p> ½Å»óÇ° </p>
+		<p> ì‹ ìƒí’ˆ </p>
 	</div>
-	<!-- ¾ÆÀÌÅÛ : Á¦Ç° start -->
-	<div class = "container"> <!-- ¹Ú½º±Ç-->
-		<div class = "row">  <!-- °¡·Î 12 ±×¸®µå -->
+	<!-- ì•„ì´í…œ : ì œí’ˆ start -->
+	<div class = "container"> <!-- ë°•ìŠ¤ê¶Œ-->
+		<div class = "row">  <!-- ê°€ë¡œ 12 ê·¸ë¦¬ë“œ -->
 		
-			<div class = "col-md-4 col-sm-6 my-5"> <!-- col-md-4 : 700~900   col-sm-6 = 500~700 my: À§¾Æ·¡ ¸¶Áø -->
-				<div class = "card"> <!-- Ä«µå -->
-					<img class= "card-img-top" src = "img/2021_11_26_4.gif">  <!-- Ä«µå »ó´Ü ÀÌ¹ÌÁö -->
-					<div class = "card-body"> <!-- Ä«µå ³»¿ë -->
-						<p class = "card-text"> ¾Æ¹« ÆÐµù</p>
+			<div class = "col-md-4 col-sm-6 my-5"> <!-- col-md-4 : 700~900   col-sm-6 = 500~700 my: ìœ„ì•„ëž˜ ë§ˆì§„ -->
+				<div class = "card"> <!-- ì¹´ë“œ -->
+					<img class= "card-img-top" src = "img/2021_11_26_4.gif">  <!-- ì¹´ë“œ ìƒë‹¨ ì´ë¯¸ì§€ -->
+					<div class = "card-body"> <!-- ì¹´ë“œ ë‚´ìš© -->
+						<p class = "card-text"> ì•„ë¬´ íŒ¨ë”©</p>
 						<hr>
 						<p class = "item p-1">
-							ÇÁ¸®¹Ì¾ö À£·ÐÃæÀüÀç¸¦ »§»§ÇÏ°Ô Ã¤¿ö³ÖÀº
-							ÈÇ¸¢ÇÑ º¸¿Â¼ºÀÇ Æ®·£µðÇÑ ÆÐµùÀÔ´Ï´Ù.<br><br>
-						Á¤»ó°¡ :  <span class = "price my-2">60,000¿ø</span> <br>
-						ÇÒÀÎ°¡ :  50,000¿ø (ÇÒÀÎ±Ý¾× : 3,000¿ø )   <br>
-						<span class="badge badge-pill badge-warning my-2">ÁÖ¹®ÆøÁÖ</span>
-						<span class="badge badge-pill badge-danger my-2">Ç°ÀýÀÓ¹Ú</span>
+							í”„ë¦¬ë¯¸ì—„ ì›°ë¡ ì¶©ì „ìž¬ë¥¼ ë¹µë¹µí•˜ê²Œ ì±„ì›Œë„£ì€
+							í›Œë¥­í•œ ë³´ì˜¨ì„±ì˜ íŠ¸ëžœë””í•œ íŒ¨ë”©ìž…ë‹ˆë‹¤.<br><br>
+						ì •ìƒê°€ :  <span class = "price my-2">60,000ì›</span> <br>
+						í• ì¸ê°€ :  50,000ì› (í• ì¸ê¸ˆì•¡ : 3,000ì› )   <br>
+						<span class="badge badge-pill badge-warning my-2">ì£¼ë¬¸í­ì£¼</span>
+						<span class="badge badge-pill badge-danger my-2">í’ˆì ˆìž„ë°•</span>
 						</p>
 					</div>
 				</div>
 			</div>
 			
-			<div class = "col-md-4 col-sm-6 my-5"> <!-- col-md-4 : 700~900   col-sm-6 = 500~700 my: À§¾Æ·¡ ¸¶Áø -->
-				<div class = "card"> <!-- Ä«µå -->
-					<img class= "card-img-top" src = "img/2021_11_26_4.gif">  <!-- Ä«µå »ó´Ü ÀÌ¹ÌÁö -->
-					<div class = "card-body"> <!-- Ä«µå ³»¿ë -->
-						<p class = "card-text"> ¾Æ¹« ÆÐµù</p>
+			<div class = "col-md-4 col-sm-6 my-5"> <!-- col-md-4 : 700~900   col-sm-6 = 500~700 my: ìœ„ì•„ëž˜ ë§ˆì§„ -->
+				<div class = "card"> <!-- ì¹´ë“œ -->
+					<img class= "card-img-top" src = "img/2021_11_26_4.gif">  <!-- ì¹´ë“œ ìƒë‹¨ ì´ë¯¸ì§€ -->
+					<div class = "card-body"> <!-- ì¹´ë“œ ë‚´ìš© -->
+						<p class = "card-text"> ì•„ë¬´ íŒ¨ë”©</p>
 						<hr>
 						<p class = "item p-1">
-							ÇÁ¸®¹Ì¾ö À£·ÐÃæÀüÀç¸¦ »§»§ÇÏ°Ô Ã¤¿ö³ÖÀº
-							ÈÇ¸¢ÇÑ º¸¿Â¼ºÀÇ Æ®·£µðÇÑ ÆÐµùÀÔ´Ï´Ù.<br><br>
-						Á¤»ó°¡ :  <span class = "price my-2">60,000¿ø</span> <br>
-						ÇÒÀÎ°¡ :  50,000¿ø (ÇÒÀÎ±Ý¾× : 3,000¿ø )   <br>
-						<span class="badge badge-pill badge-warning my-2">ÁÖ¹®ÆøÁÖ</span>
-						<span class="badge badge-pill badge-danger my-2">Ç°ÀýÀÓ¹Ú</span>
+							í”„ë¦¬ë¯¸ì—„ ì›°ë¡ ì¶©ì „ìž¬ë¥¼ ë¹µë¹µí•˜ê²Œ ì±„ì›Œë„£ì€
+							í›Œë¥­í•œ ë³´ì˜¨ì„±ì˜ íŠ¸ëžœë””í•œ íŒ¨ë”©ìž…ë‹ˆë‹¤.<br><br>
+						ì •ìƒê°€ :  <span class = "price my-2">60,000ì›</span> <br>
+						í• ì¸ê°€ :  50,000ì› (í• ì¸ê¸ˆì•¡ : 3,000ì› )   <br>
+						<span class="badge badge-pill badge-warning my-2">ì£¼ë¬¸í­ì£¼</span>
+						<span class="badge badge-pill badge-danger my-2">í’ˆì ˆìž„ë°•</span>
 						</p>
 					</div>
 				</div>
 			</div>
 			
-			<div class = "col-md-4 col-sm-6 my-5"> <!-- col-md-4 : 700~900   col-sm-6 = 500~700 my: À§¾Æ·¡ ¸¶Áø -->
-				<div class = "card"> <!-- Ä«µå -->
-					<img class= "card-img-top" src = "img/2021_11_26_4.gif">  <!-- Ä«µå »ó´Ü ÀÌ¹ÌÁö -->
-					<div class = "card-body"> <!-- Ä«µå ³»¿ë -->
-						<p class = "card-text"> ¾Æ¹« ÆÐµù</p>
+			<div class = "col-md-4 col-sm-6 my-5"> <!-- col-md-4 : 700~900   col-sm-6 = 500~700 my: ìœ„ì•„ëž˜ ë§ˆì§„ -->
+				<div class = "card"> <!-- ì¹´ë“œ -->
+					<img class= "card-img-top" src = "img/2021_11_26_4.gif">  <!-- ì¹´ë“œ ìƒë‹¨ ì´ë¯¸ì§€ -->
+					<div class = "card-body"> <!-- ì¹´ë“œ ë‚´ìš© -->
+						<p class = "card-text"> ì•„ë¬´ íŒ¨ë”©</p>
 						<hr>
 						<p class = "item p-1">
-							ÇÁ¸®¹Ì¾ö À£·ÐÃæÀüÀç¸¦ »§»§ÇÏ°Ô Ã¤¿ö³ÖÀº
-							ÈÇ¸¢ÇÑ º¸¿Â¼ºÀÇ Æ®·£µðÇÑ ÆÐµùÀÔ´Ï´Ù.<br><br>
-						Á¤»ó°¡ :  <span class = "price my-2">60,000¿ø</span> <br>
-						ÇÒÀÎ°¡ :  50,000¿ø (ÇÒÀÎ±Ý¾× : 3,000¿ø )   <br>
-						<span class="badge badge-pill badge-warning my-2">ÁÖ¹®ÆøÁÖ</span>
-						<span class="badge badge-pill badge-danger my-2">Ç°ÀýÀÓ¹Ú</span>
+							í”„ë¦¬ë¯¸ì—„ ì›°ë¡ ì¶©ì „ìž¬ë¥¼ ë¹µë¹µí•˜ê²Œ ì±„ì›Œë„£ì€
+							í›Œë¥­í•œ ë³´ì˜¨ì„±ì˜ íŠ¸ëžœë””í•œ íŒ¨ë”©ìž…ë‹ˆë‹¤.<br><br>
+						ì •ìƒê°€ :  <span class = "price my-2">60,000ì›</span> <br>
+						í• ì¸ê°€ :  50,000ì› (í• ì¸ê¸ˆì•¡ : 3,000ì› )   <br>
+						<span class="badge badge-pill badge-warning my-2">ì£¼ë¬¸í­ì£¼</span>
+						<span class="badge badge-pill badge-danger my-2">í’ˆì ˆìž„ë°•</span>
 						</p>
 					</div>
 				</div>
 			</div>
 			
-			<div class = "col-md-4 col-sm-6 my-5"> <!-- col-md-4 : 700~900   col-sm-6 = 500~700 my: À§¾Æ·¡ ¸¶Áø -->
-				<div class = "card"> <!-- Ä«µå -->
-					<img class= "card-img-top" src = "img/2021_11_26_4.gif">  <!-- Ä«µå »ó´Ü ÀÌ¹ÌÁö -->
-					<div class = "card-body"> <!-- Ä«µå ³»¿ë -->
-						<p class = "card-text"> ¾Æ¹« ÆÐµù</p>
+			<div class = "col-md-4 col-sm-6 my-5"> <!-- col-md-4 : 700~900   col-sm-6 = 500~700 my: ìœ„ì•„ëž˜ ë§ˆì§„ -->
+				<div class = "card"> <!-- ì¹´ë“œ -->
+					<img class= "card-img-top" src = "img/2021_11_26_4.gif">  <!-- ì¹´ë“œ ìƒë‹¨ ì´ë¯¸ì§€ -->
+					<div class = "card-body"> <!-- ì¹´ë“œ ë‚´ìš© -->
+						<p class = "card-text"> ì•„ë¬´ íŒ¨ë”©</p>
 						<hr>
 						<p class = "item p-1">
-							ÇÁ¸®¹Ì¾ö À£·ÐÃæÀüÀç¸¦ »§»§ÇÏ°Ô Ã¤¿ö³ÖÀº
-							ÈÇ¸¢ÇÑ º¸¿Â¼ºÀÇ Æ®·£µðÇÑ ÆÐµùÀÔ´Ï´Ù.<br><br>
-						Á¤»ó°¡ :  <span class = "price my-2">60,000¿ø</span> <br>
-						ÇÒÀÎ°¡ :  50,000¿ø (ÇÒÀÎ±Ý¾× : 3,000¿ø )   <br>
-						<span class="badge badge-pill badge-warning my-2">ÁÖ¹®ÆøÁÖ</span>
-						<span class="badge badge-pill badge-danger my-2">Ç°ÀýÀÓ¹Ú</span>
+							í”„ë¦¬ë¯¸ì—„ ì›°ë¡ ì¶©ì „ìž¬ë¥¼ ë¹µë¹µí•˜ê²Œ ì±„ì›Œë„£ì€
+							í›Œë¥­í•œ ë³´ì˜¨ì„±ì˜ íŠ¸ëžœë””í•œ íŒ¨ë”©ìž…ë‹ˆë‹¤.<br><br>
+						ì •ìƒê°€ :  <span class = "price my-2">60,000ì›</span> <br>
+						í• ì¸ê°€ :  50,000ì› (í• ì¸ê¸ˆì•¡ : 3,000ì› )   <br>
+						<span class="badge badge-pill badge-warning my-2">ì£¼ë¬¸í­ì£¼</span>
+						<span class="badge badge-pill badge-danger my-2">í’ˆì ˆìž„ë°•</span>
 						</p>
 					</div>
 				</div>
@@ -121,7 +121,7 @@
 			
 		</div>
 	</div>
-	<!-- ¾ÆÀÌÅÛ : Á¦Ç° end -->
+	<!-- ì•„ì´í…œ : ì œí’ˆ end -->
 	<%@include file="footer.jsp" %>
 	
 </body>
