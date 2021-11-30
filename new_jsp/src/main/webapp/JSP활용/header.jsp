@@ -4,39 +4,40 @@
 <%@page import="java.io.FileInputStream"%>
 <%@page import="new_jsp.Member"%>
 <%@page import="java.util.ArrayList"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 
 	<%
-		// ¼¼¼Ç È£Ãâ 
+		// ì„¸ì…˜ í˜¸ì¶œ 
 		String loginid = (String)session.getAttribute("loginid");
 	%>
+	
 	<%
-	ArrayList<Member> members = new ArrayList<>();  	// 1. È¸¿øÃÊ±âÈ­
-	// 2. ÆÄÀÏÀÔ·Â½ºÆ®¸² ¼±¾ğ
-	FileInputStream fileInputStream = new FileInputStream( "C:/Users/ez201207/git/web_practice_1/new_jsp/src/main/memberlist.txt");
-	byte[] bytes = new byte[1000];	// 3. ÀĞ¾î¿Ã ¹ÙÀÌÆ®¸¦ ÀúÀåÇÒ ¹ÙÀÌÆ®¹è¿­
-	fileInputStream.read( bytes );	// 4. ÆÄÀÏ ÀĞ±â -> ¹ÙÀÌÆ®¹è¿­ ÀúÀå
-	String smember = new String(bytes);	// 5. ¹ÙÀÌÆ®¹è¿­ -> ¹®ÀÚ¿­ º¯È¯ 
-	String[] ssmember = smember.split("\n"); // 6. ¹®ÀÚ¿­ ºĞÇØ [ \n ] : È¸¿ø±¸ºĞ
-	for( int i = 0 ; i<ssmember.length-1 ; i++ ){ // 7. ¸¶Áö¸· \n Á¦¿ÜÇÑ ¹İº¹¹®
-		// °´Ã¼È­
+	ArrayList<Member> members = new ArrayList<>();  	// 1. íšŒì›ì´ˆê¸°í™”
+	// 2. íŒŒì¼ì…ë ¥ìŠ¤íŠ¸ë¦¼ ì„ ì–¸
+	FileInputStream fileInputStream = new FileInputStream( "C:/Users/119vk/git/web_practice_1/new_jsp/src/main/memberlist.txt");
+	byte[] bytes = new byte[1000];	// 3. ì½ì–´ì˜¬ ë°”ì´íŠ¸ë¥¼ ì €ì¥í•  ë°”ì´íŠ¸ë°°ì—´
+	fileInputStream.read( bytes );	// 4. íŒŒì¼ ì½ê¸° -> ë°”ì´íŠ¸ë°°ì—´ ì €ì¥
+	String smember = new String(bytes);	// 5. ë°”ì´íŠ¸ë°°ì—´ -> ë¬¸ìì—´ ë³€í™˜ 
+	String[] ssmember = smember.split("\n"); // 6. ë¬¸ìì—´ ë¶„í•´ [ \n ] : íšŒì›êµ¬ë¶„
+	for( int i = 0 ; i<ssmember.length-1 ; i++ ){ // 7. ë§ˆì§€ë§‰ \n ì œì™¸í•œ ë°˜ë³µë¬¸
+		// ê°ì²´í™”
 		Member member = new Member( ssmember[i].split(",")[0] ,
 									ssmember[i].split(",")[1] ,
 									ssmember[i].split(",")[2] );
-		members.add(member); // ¸®½ºÆ®¿¡ °´Ã¼ ÀúÀå
+		members.add(member); // ë¦¬ìŠ¤íŠ¸ì— ê°ì²´ ì €ì¥
 	}
 	
-		// °Ô½Ã¹° ÆÄÀÏ
+		// ê²Œì‹œë¬¼ íŒŒì¼
 		ArrayList<Board> boards = new ArrayList<>();
-		fileInputStream = new FileInputStream("C:/Users/ez201207/git/web_practice_1/new_jsp/src/main/boardlist.txt");
+		fileInputStream = new FileInputStream("C:/Users/119vk/git/web_practice_1/new_jsp/src/main/boardlist.txt");
 		bytes = new byte[1000];
 		fileInputStream.read(bytes);
 		String sboard = new String(bytes);
@@ -49,25 +50,25 @@
 					boards.add(board);
 		}
 		
-		String[] books = {   "µÈ´Ù! ³×ÀÌ¹ö ºí·Î±×&Æ÷½ºÆ®","½ºÇÁ¸µ ºÎÆ® ½ÇÀü È°¿ë ¸¶½ºÅÍ","TuckerÀÇ Go ¾ğ¾î ÇÁ·Î±×·¡¹Ö","È¥ÀÚ °øºÎÇÏ´Â C ¾ğ¾î"};
+		String[] books = {   "ëœë‹¤! ë„¤ì´ë²„ ë¸”ë¡œê·¸&í¬ìŠ¤íŠ¸","ìŠ¤í”„ë§ ë¶€íŠ¸ ì‹¤ì „ í™œìš© ë§ˆìŠ¤í„°","Tuckerì˜ Go ì–¸ì–´ í”„ë¡œê·¸ë˜ë°","í˜¼ì ê³µë¶€í•˜ëŠ” C ì–¸ì–´"};
 	    
 		int[] number = new int[6];
 		int[] random = new int[6];
 		int[] num2 = new int[6];
 		ArrayList <Lotto> lottoss = new ArrayList<>(); 
 	%>
-
-	<h3> <a href="main.jsp"> ÆäÀÌÁö ±¸¿ª </a> </h3>
+	
+	<h3> <a href="main.jsp"> í˜ì´ì§€ êµ¬ì—­ </a> </h3>
 	<ul>
-		<% if( loginid != null ){ out.print("<li>"+loginid+"´Ô ¾È³çÇÏ¼¼¿ä</li>"); } %>
+		<% if( loginid != null ){ out.print("<li>"+loginid+"ë‹˜ ì•ˆë…•í•˜ì„¸ìš”</li>"); } %>
 		<% if( loginid != null ){ %>
-			<li> <a href="logout.jsp">·Î±×¾Æ¿ô</a> </li>
+			<li> <a href="logout.jsp">ë¡œê·¸ì•„ì›ƒ</a> </li>
 		<% } %>
-		<li> <a href="login.jsp">·Î±×ÀÎ</a> </li>
-		<li> <a href="signup.jsp">È¸¿ø°¡ÀÔ</a> </li>
-		<li> <a href="boardlist.jsp">°Ô½ÃÆÇ</a> </li>
-		<li> <a href="book.jsp">µµ¼­°Ë»ö</a> </li>
-		<li> <a href="lotto.jsp">·£´ı·Î¶Ç</a> </li>
+		<li> <a href="login.jsp">ë¡œê·¸ì¸</a> </li>
+		<li> <a href="signup.jsp">íšŒì›ê°€ì…</a> </li>
+		<li> <a href="boardlist.jsp">ê²Œì‹œíŒ</a> </li>
+		<li> <a href="book.jsp">ë„ì„œê²€ìƒ‰</a> </li>
+		<li> <a href="lotto.jsp">ëœë¤ë¡œë˜</a> </li>
 	</ul>
 	
 </body>

@@ -1,25 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 	<%@ include file ="header.jsp"%>
 	
-	<h3>·Î±×ÀÎ ÆäÀÌÁö</h3>
+	<h3>ë¡œê·¸ì¸ íŽ˜ì´ì§€</h3>
 	
 	<form action="logincontroller.jsp" method = "post">
-		¾ÆÀÌµð : <input type="text" name = "id" placeholder="Enter ID"/>
-		ºñ¹Ð¹øÈ£ : <input type="password" name = "password" placeholder="Enter Password"/>
-		<input type="submit" value= "·Î±×ÀÎ" >
+		ì•„ì´ë”” : <input type="text" name = "id" placeholder="Enter ID"/>
+		ë¹„ë°€ë²ˆí˜¸ : <input type="password" name = "password" placeholder="Enter Password"/>
+		<input type="submit" value= "ë¡œê·¸ì¸" >
 	
 	</form>
 		<% String result = request.getParameter("result"); %>
 		<% if( result != null ){%>
-				<h4> ·Î±×ÀÎ ½ÇÆÐ </h4>
+				<h4> ë¡œê·¸ì¸ ì‹¤íŒ¨ </h4>
 			<%out.print(result); %>
 		<% } %>
 	

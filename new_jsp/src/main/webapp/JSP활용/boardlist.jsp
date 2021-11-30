@@ -1,23 +1,23 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 	<%@include file = "header.jsp" %>
 	
-	<h3> �Խù� ���</h3>
+	<h3> 게시물 목록</h3>
 	<%if(loginid == null){ %>
-		<p>�α��� �� �Խù��� �ۼ��� �� �ֽ��ϴ�. </p>
+		<p>로그인 후 게시물을 작성할 수 있습니다. </p>
 	<%}else{ %>
-		<a href="boardwrite.jsp"> <button> ���ۼ� </button> </a>
+		<a href="boardwrite.jsp"> <button> 글작성 </button> </a>
 	<%} %>
 	<table>
 		<tr>
-			<th>��ȣ</th> <th> ����</th> <th>�ۼ���</th>
+			<th>번호</th> <th> 제목</th> <th>작성자</th>
 		</tr>	
 		
 		 
