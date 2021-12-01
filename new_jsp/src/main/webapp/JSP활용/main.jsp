@@ -2,33 +2,31 @@
 <%@page import="java.io.FileInputStream"%>
 <%@page import="java.io.FileOutputStream"%>
 <%@page import="java.util.ArrayList"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<%@ include file = "header.jsp" %> <!-- ÆäÀÌÁö Æ÷ÇÔ -->
-	<h3> ¸ÞÀÎ ÆäÀÌÁö ±¸¿ª    </h3>
-	<h4> È¸¿ø ÇöÈ²</h4>
-	
-	
+<%@ include file = "header.jsp" %> <!-- íŽ˜ì´ì§€ í¬í•¨ -->
+	<h3> ë©”ì¸ íŽ˜ì´ì§€ êµ¬ì—­    </h3>
+	<h4> íšŒì› í˜„í™©</h4>
 	
 	<table>
 	
 		<tr>
 		
-			<th>¹øÈ£</th> <th>¾ÆÀÌµð</th> <th>ÀÌ¸§</th>
+			<th>ë²ˆí˜¸</th> <th>ì•„ì´ë””</th> <th>ì´ë¦„</th>
 		
 		</tr>
 		<% for(int i = 0; i<members.size(); i++){ %>
 				<tr>
 					<td><%=(i+1) %></td>
-					<td><%= members.get(i).getId() %></td>  <!-- ÆÄ½ÌµÈ µ¥ÀÌÅÍ°¡ ÀúÀåµÈ °´Ã¼ÀÇ ¸®½ºÆ®ÀÇ membersÀÇ i¹øÂ°ÀÇ id¸¦ °¡Á®¿È -->
-					<td><%= members.get(i).getName() %></td> <!-- ÆÄ½ÌµÈ µ¥ÀÌÅÍ°¡ ÀúÀåµÈ °´Ã¼ÀÇ ¸®½ºÆ®ÀÇ membersÀÇ i¹øÂ°ÀÇ ÀÌ¸§À» °¡Á®¿È -->
+					<td><%= members.get(i).getId() %></td>  <!-- íŒŒì‹±ëœ ë°ì´í„°ê°€ ì €ìž¥ëœ ê°ì²´ì˜ ë¦¬ìŠ¤íŠ¸ì˜ membersì˜ ië²ˆì§¸ì˜ idë¥¼ ê°€ì ¸ì˜´ -->
+					<td><%= members.get(i).getName() %></td> <!-- íŒŒì‹±ëœ ë°ì´í„°ê°€ ì €ìž¥ëœ ê°ì²´ì˜ ë¦¬ìŠ¤íŠ¸ì˜ membersì˜ ië²ˆì§¸ì˜ ì´ë¦„ì„ ê°€ì ¸ì˜´ -->
 				
 				</tr>
 		<%	}%>

@@ -22,7 +22,7 @@
 	<%
 	ArrayList<Member> members = new ArrayList<>();  	// 1. 회원초기화
 	// 2. 파일입력스트림 선언
-	FileInputStream fileInputStream = new FileInputStream( "C:/Users/119vk/git/web_practice_1/new_jsp/src/main/memberlist.txt");
+	FileInputStream fileInputStream = new FileInputStream( "C:/Users/ez201207/git/web_practice_1/new_jsp/src/main/memberlist.txt");
 	byte[] bytes = new byte[1000];	// 3. 읽어올 바이트를 저장할 바이트배열
 	fileInputStream.read( bytes );	// 4. 파일 읽기 -> 바이트배열 저장
 	String smember = new String(bytes);	// 5. 바이트배열 -> 문자열 변환 
@@ -37,7 +37,7 @@
 	
 		// 게시물 파일
 		ArrayList<Board> boards = new ArrayList<>();
-		fileInputStream = new FileInputStream("C:/Users/119vk/git/web_practice_1/new_jsp/src/main/boardlist.txt");
+		fileInputStream = new FileInputStream("C:/Users/ez201207/git/web_practice_1/new_jsp/src/main/boardlist.txt");
 		bytes = new byte[1000];
 		fileInputStream.read(bytes);
 		String sboard = new String(bytes);

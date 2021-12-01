@@ -6,6 +6,7 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 </head>
+
 <body>
 	<%@ include file = "header.jsp" %>
 	<%
@@ -26,9 +27,7 @@
 		}
 		
 		// 로그인 실패
-		if(!logincheck){response.sendRedirect("login.jsp?result=fail");} // URL요청 변수도 같이 이동함
-		
-		
+		if(!logincheck){response.sendRedirect("login.jsp?result=fail");} // URL요청 변수도 같이 이동함		
 	%>
 	
 	
