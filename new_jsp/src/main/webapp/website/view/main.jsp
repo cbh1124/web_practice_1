@@ -30,7 +30,7 @@
 					// 가져온 쿠키이름의 세션 데이터 호출
 			out.println("<br> 세션 이름 : " + name + "<br> 세션 값은 : " + value);
 		}
-		session.setMaxInactiveInterval(5);
+		
 	%>
 	
 	

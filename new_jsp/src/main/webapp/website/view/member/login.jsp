@@ -9,7 +9,14 @@
 
 </head>
 <body>
-
+	<!--  만약에 로그인이 되어있는 경우  -->
+	<%
+		// 로그인이 되어 있는경우 
+		if( session.getAttribute("id") != null ){
+			out.print("<script> alert('로그인이 되어있습니다.');</script>");
+			out.println("<script>document.location.href='../main.jsp';</script>");
+		}
+	%>
 	<%@include file = "../header.jsp" %> <!-- 헤더 페이지 -->
 	
 	<div class="container"> <!-- 박스권  -->
@@ -34,6 +41,17 @@
 						<div class="col-md-3 m-2"> <label>비밀번호</label> </div>
 						<div class="col-md-8"> <input type="password" name="password" class="form-control" maxlength="15"> </div>
 					</div>
+					
+					<%
+						String result = request.getParameter("result");
+						if(request != null ){
+							%>
+								<div>
+									<span>회원정보가 올바르지 않습니다.</span>
+								</div>
+							<% 
+						}
+					%>
 					<div>
 						<input type="submit" value="로그인" class="form-control p-3 m-3">
 					</div>

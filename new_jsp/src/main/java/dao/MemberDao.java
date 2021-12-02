@@ -4,6 +4,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+
+import domain.Reply;
+import dto.Member;
 
 public class MemberDao {
 	// 1. DB 
@@ -73,6 +77,70 @@ public class MemberDao {
 			return false;
 		}
 		
+		// 3. 아이디 체크 메소드 
+		public boolean idcheck(String userid) {
+			String sql = "select m_id from member where m_id =?";
+			try {
+				ps = con.prepareStatement(sql);
+				ps.setString(1, userid);
+				rs = ps.executeQuery();
+				
+				if(rs.next()) {
+					return true;
+				}else {
+					return false;
+				}
+			}catch (Exception e){
+				
+			}
+			
+			return false;
+		}
 		
+		public ArrayList<Member> memberinfo(String userid) {
+			ArrayList<Member> members = new ArrayList<Member>();
+			String sql = "select * from member where m_id = ?";
+			try {
+				ps = con.prepareStatement(sql);
+				ps.setString(1, userid);
+				rs = ps.executeQuery();
+				while(rs.next()) {
+					Member member2 = new Member(
+									rs.getString(1),
+									rs.getString(2),
+									rs.getString(3),
+									rs.getString(4),
+									rs.getString(5),
+									rs.getString(6),
+									rs.getString(7)	
+								);
+					members.add(member2);
+				}	return members;
+			}catch(Exception e){
+				
+			}return members;
+			
+		}
 
 }
+
+
+/*try {
+	preparedStatement = connection.prepareStatement(sql);
+	preparedStatement.setInt(1, r_b_no);
+	resultSet = preparedStatement.executeQuery();
+	
+	while(resultSet.next()) {
+		Reply reply = new Reply(resultSet.getInt(1) ,
+				resultSet.getString(2),
+				resultSet.getString(3),
+				resultSet.getString(4),
+				resultSet.getInt(5) );
+		replys.add(reply);
+	}
+	return replys;
+	}
+	catch (Exception e) {
+	
+	}return replys;
+*/

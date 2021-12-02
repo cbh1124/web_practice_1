@@ -22,7 +22,9 @@
 		String address = request.getParameter("address1")+","+request.getParameter("address2")+","+
 						request.getParameter("address3")+","+request.getParameter("address4");
 		
+		/*
 		/*유효성 검사 */
+		/*
 		if(id.equals("") || password.equals("") || passwordconfirm.equals("") || name.equals("") || birth.equals("") || sex.equals("") || phone.equals("") || address.equals("")){
 			out.print("<script> alert('입력이 안된 부분이 있습니다.');</script>");
 			out.println("<script>document.location.href='../view/member/signup.jsp';</script>");
@@ -54,7 +56,8 @@
 			out.println("<script>location.href='../view/member/signup.jsp';</script>");
 			
 		}
-		else{
+		
+		else{ */
 		// 객체화
 			Member member = new Member( id , password , name , birth , sex , phone , address);
 			// DB 처리
@@ -67,7 +70,7 @@
 				response.sendRedirect("../view/member/signup.jsp");
 				System.out.println("로그인실패");
 			}
-		}
+		/*}*/
 	%>
 </body>
 </html>

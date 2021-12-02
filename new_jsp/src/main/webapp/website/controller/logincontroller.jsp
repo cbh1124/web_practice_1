@@ -1,10 +1,10 @@
 <%@page import="dao.MemberDao"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
@@ -19,12 +19,12 @@
 		
 		if(result){
 			response.sendRedirect("../view/main.jsp");
-			System.out.println("·Î±×ÀÎ¼º°ø");
+			System.out.println("ë¡œê·¸ì¸ì„±ê³µ");
 			session.setAttribute("id", id);
-			session.setMaxInactiveInterval(5);
+			session.setMaxInactiveInterval(5); 
 		}else{
-			response.sendRedirect("../view/member/login.jsp");
-			System.out.println("·Î±×ÀÎ½ÇÆĞ");
+			response.sendRedirect("../view/member/login.jsp?result=fail");
+			System.out.println("ë¡œê·¸ì¸ì‹¤íŒ¨");
 		}
 	%>
 	
