@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import domain.Reply;
 import dto.Member;
 
 public class MemberDao {
@@ -97,6 +96,7 @@ public class MemberDao {
 			return false;
 		}
 		
+		// 4. 회원 정보
 		public ArrayList<Member> memberinfo(String userid) {
 			ArrayList<Member> members = new ArrayList<Member>();
 			String sql = "select * from member where m_id = ?";
@@ -121,7 +121,92 @@ public class MemberDao {
 			}return members;
 			
 		}
-
+		
+		// 회원 탈퇴 메소드  확인용 
+		
+		public boolean delete(String id , String password) {
+			
+			String sql1 = "select * from  member where m_id = ? and m_password = ?";
+					
+			String sql2 = "delete from member where m_id =? and m_password = ?";
+			try {
+				ps = con.prepareStatement(sql1);
+				ps.setString(1, id);
+				ps.setString(2, password);
+				rs = ps.executeQuery();
+				if( rs.next() ){ // 아이디와 비밀번호가 동일한 경우에만 회원 삭제 
+					PreparedStatement ps2 = con.prepareStatement(sql2);
+					ps2.setString(1, id);
+					ps2.setString(2, password);
+					ps2.executeUpdate();
+					return true;
+				}
+				
+			}catch (Exception e){
+				System.out.println(e);
+			}
+			
+			return false;
+		}
+		
+		// 회원 정보 출력 메소드
+		public Member getmember( String id ) {
+			
+			String sql = "select * from member where m_id =? ";
+			try {
+				ps = con.prepareStatement(sql);
+				ps.setString(1, id);
+				rs = ps.executeQuery();
+				if( rs.next() ) {
+					// 동일한 아이디의 레코드를 비밀번호를 제외한 객체화
+					Member member = new Member(
+								rs.getInt(1) ,
+								rs.getString(2) ,
+								null ,
+								rs.getString(4) ,
+								rs.getString(5) ,
+								rs.getString(6) ,
+								rs.getString(7) ,
+								rs.getString(8) ,
+								rs.getInt(9) ,
+								rs.getString(10) 
+							);
+					return member;
+				}
+			}catch (Exception e) {} return null;
+			
+		}
+		
+		public boolean namechange(String name , String id) {
+			String sql = "update member set m_name = ? where m_id = ? ";
+			
+			try {
+				ps = con.prepareStatement(sql);
+				ps.setString(1, name);
+				ps.setString(2, id);
+				ps.executeUpdate();
+				return true;
+			}catch (Exception e) {
+				
+			}return false;
+		}
+		
+		
+		public boolean wildchange(String inset ,String inset2 , String id) {
+			String sql = "update jsp.member set "+inset+" = ? where m_id = ? ";
+			System.out.println(inset);
+			System.out.println(inset2);
+			System.out.println(id);
+			try {
+				ps = con.prepareStatement(sql);
+				ps.setString(1, inset2);
+				ps.setString(2, id);
+				ps.executeUpdate();
+				return true;
+			}catch (Exception e) {
+				
+			}return false;
+		}
 }
 
 

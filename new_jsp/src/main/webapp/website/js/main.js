@@ -57,13 +57,40 @@
         }).open();
     }
  /*다음주소 api  end */
+/* 회원탈퇴 [ ajax : jquery  ] */ 
+
+	// $( function(){ 실행문 });	: js함수 정의하기
+	$(function(){ 
+		// 버튼을 클릭했을때 이벤트 걸기 
+		$("#delete").click( function(){ 
+			// ajax : 비동기식 통신 [ 페이지전환없이 통신 ]
+				//$.ajax({ 속성명:값 , 속성명:값 , 속성명:값  });
+			$.ajax({
+				url : "../../controller/memberdeletecontroller.jsp" ,
+				/* url : 통신 경로 */
+				data : {password:document.getElementById("deleteform").password.value} ,
+				/* data : { 변수명 : 값 } */ 
+				success : function( result  ){
+					if( result == 1 ){
+						alert('회원탈퇴 되었습니다');
+						location.href='../../controller/logoutcontroller.jsp';
+					}else{
+						document.getElementById("deleteresult").innerHTML = "회원정보가 다릅니다.";
+					}
+				
+				}
+			});
+		} ); // 버튼 클릭했을때 함수 끝
+	 }); // 전체 함수 끝 
 
 
+/* 회원탈퇴 */
+
+/* */
 /* 아이디 중복체크 [ajax] */   
 	$(function(){
 		$("#id").change(function(){
 				// 비동기식 : $.ajax({속성명 : "값", 속성명:"값" , 속성명 :"값" })
-				
 				$.ajax({
 					url : "idcheck.jsp", /* 통신할 경로 페이지 */ 
 					data :{ userid : document.getElementById("signupform").id.value }, 				/* 이동할 데이터 */
@@ -80,9 +107,32 @@
 		});
 		// 태그의 id가 
 	});
+/*   */
+function namechange(){ 
+	document.getElementById("tdname").innerHTML = "<input type='text' id='name' class='form-control'> <button id='namechangebtn' class='form-control'>확인</button>"
+	
+	$(function(){
+		$("#namechangebtn").click(function(){
+			$.ajax({
+				url : "../../controller/changecontroller.jsp",
+				data : { name : document.getElementById("name").value },
+				success : function( result ){
+					if(result == 1){
+						alert("값을 수정하셨네요");
+					}else{
+						alert("값을 불수정하셨습니다.");
+					}
+					
+				}
+			});
+		});
+		
+	});
+}		
+
+	
 
 /* 회원가입 유효성검사 */
-  
 	function signupcheck(){
 	
 		// 1. 폼 가져오기 [ 폼에 id 존재 ]	//	document.getElementById("signupform")
@@ -149,7 +199,7 @@
 
 /* 회원가입 유효성검사 end */
 	
-	
+
 	
 	
 	

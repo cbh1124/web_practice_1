@@ -21,7 +21,7 @@
 			response.sendRedirect("../view/main.jsp");
 			System.out.println("로그인성공");
 			session.setAttribute("id", id);
-			session.setMaxInactiveInterval(5); 
+			//session.setMaxInactiveInterval(5); 
 		}else{
 			response.sendRedirect("../view/member/login.jsp?result=fail");
 			System.out.println("로그인실패");
