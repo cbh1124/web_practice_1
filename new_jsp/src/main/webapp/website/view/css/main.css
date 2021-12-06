@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+/* 외부 폰트*/
+
+@font-face {
+    font-family: 'twayair';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_tway@1.0/twayair.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+	font-family: '맑은고딕';
+	
+}
+.header_logo{
+	font-family : 'twayair';
+	font-size : 2rem;
+}
+
+.header_menu{
+	margin-left : 20px;
+	color : #999;
+}
+
+.carousel-item img{
+	
+	width : 100%;
+}

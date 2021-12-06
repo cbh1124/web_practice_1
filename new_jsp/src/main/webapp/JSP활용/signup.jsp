@@ -1,22 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<%@ include file = "header.jsp" %> <!-- Çì´õÆäÀÌÁö Æ÷ÇÔ -->
+	<%@ include file = "header.jsp" %> <!-- í—¤ë”í˜ì´ì§€ í¬í•¨ -->
 	
-	<!-- È¸¿ø ÆäÀÌÁö ±¸¿ª -->
-	<form action ="signupcontroller.jsp" method = "post" > <!-- action = "ÀÌµ¿ÆäÀÌÁö °æ·Î" method ="Àü¼Û¹æ½Ä : get,post" -->
+	<!-- íšŒì› í˜ì´ì§€ êµ¬ì—­ -->
+	<form action ="signupcontroller.jsp" method = "post" > <!-- action = "ì´ë™í˜ì´ì§€ ê²½ë¡œ" method ="ì „ì†¡ë°©ì‹ : get,post" -->
 		<input type = "text" name = "id" placeholder = "Enter ID"> <br>
 		<input type="password" name="password" placeholder = "Enter Password" > <br>
 		<input type="text" name = "name" placeholder="Enter Name"> <br>
 	
-		<input type="submit" value = "È¸¿ø°¡ÀÔ"> <!-- submit Å¬¸¯ÇßÀ»¶§  form Àü¼Û(action) -->
-		<!--  value´Â °ª -->
+		<input type="submit" value = "íšŒì›ê°€ì…"> <!-- submit í´ë¦­í–ˆì„ë•Œ  form ì „ì†¡(action) -->
+		<!--  valueëŠ” ê°’ -->
 	</form>
 </body>
 </html>
