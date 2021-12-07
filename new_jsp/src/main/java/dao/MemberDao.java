@@ -207,6 +207,40 @@ public class MemberDao {
 				
 			}return false;
 		}
+		
+		// 회원수정
+		public boolean update( String type , String newdata , String id ) {
+			String sql = "update member set "+type+" = ? where m_id = ?";
+			try {
+				ps =con.prepareStatement(sql);
+				ps.setString(1, newdata);	ps.setString(2, id);
+				ps.executeUpdate(); return true;
+			}catch (Exception e) {} return false;
+		}
+		
+		// 회원번호 검색 메소드 
+		public int getmembernum( String id) {
+			
+			String sql ="select m_num from member where m_id=?";
+			try {
+				ps =con.prepareStatement(sql); ps.setString(1, id);
+				rs = ps.executeQuery(); 
+				if( rs.next() ) { return rs.getInt(1); }
+			}catch (Exception e) {} return 0;
+			
+		}
+		
+		// 회원아이디 검색 메소드 
+		public String getmemberid( int m_num) {
+			
+			String sql ="select m_id from member where m_num=?";
+			try {
+				ps =con.prepareStatement(sql); ps.setInt(1, m_num);
+				rs = ps.executeQuery(); 
+				if( rs.next() ) { return rs.getString(1); }
+			}catch (Exception e) {} return null;
+			
+		}
 }
 
 

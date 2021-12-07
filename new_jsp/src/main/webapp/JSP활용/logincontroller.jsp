@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 
@@ -13,21 +13,21 @@
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 		
-		// Á¸Àç ¿©ºÎ
+		// ì¡´ì¬ ì—¬ë¶€
 		boolean logincheck = false;
 		for(Member member : members){
 			if(member.getId().equals(id) && member.getPassword().equals(password)){
 				logincheck = true;
-				// ¼¼¼Ç »ı¼º
+				// ì„¸ì…˜ ìƒì„±
 					session.setAttribute("loginid", member.getId());
-					// ¼¼¼Ç À¯Áö ½Ã°£
-					// session.setMaxInactiveInterval(10); // 10ÃÊµ¿¾È º°µµ·Î ¿äÃ» ÇÏÁö¾ÊÀ¸¸é ¼¼¼ÇÀÌ »ç¶óÁü
+					// ì„¸ì…˜ ìœ ì§€ ì‹œê°„
+					// session.setMaxInactiveInterval(10); // 10ì´ˆë™ì•ˆ ë³„ë„ë¡œ ìš”ì²­ í•˜ì§€ì•Šìœ¼ë©´ ì„¸ì…˜ì´ ì‚¬ë¼ì§
 				response.sendRedirect("main.jsp");
 			}
 		}
 		
-		// ·Î±×ÀÎ ½ÇÆĞ
-		if(!logincheck){response.sendRedirect("login.jsp?result=fail");} // URL¿äÃ» º¯¼öµµ °°ÀÌ ÀÌµ¿ÇÔ		
+		// ë¡œê·¸ì¸ ì‹¤íŒ¨
+		if(!logincheck){response.sendRedirect("login.jsp?result=fail");} // URLìš”ì²­ ë³€ìˆ˜ë„ ê°™ì´ ì´ë™í•¨		
 	%>
 	
 	

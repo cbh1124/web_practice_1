@@ -8,12 +8,12 @@
 </head>
 <body>
 	<%	
-		String loginid = (String)session.getAttribute("id");
+		
 	
-		if(loginid != null){
-			session.setAttribute("id", null);
+		
+			session.setAttribute("login", null);
 			response.sendRedirect("../view/member/login.jsp");
-		}
+		
 	%>
 	
 </body>
