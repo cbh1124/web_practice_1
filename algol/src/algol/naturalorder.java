@@ -7,7 +7,7 @@ public class naturalorder {  // 말 그대로 사람 시점에서 자연스러�
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
-		// Java에서 사용하는 키워드입니다.
+		
 		String[] x = {
 			"abstract",   "assert",       "boolean",   "break",      "byte",
 			"case",       "catch",        "char",      "class",      "const",

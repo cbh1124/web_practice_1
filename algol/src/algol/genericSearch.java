@@ -33,7 +33,7 @@ public class genericSearch {
 		}
 
 		public static void main(String[] args) {
-			Scanner stdIn = new Scanner(System.in);
+			Scanner sc = new Scanner(System.in);
 			PhyscData[] x = {					
 				new PhyscData("이나령", 162, 0.3),
 				new PhyscData("유지훈", 168, 0.4),
@@ -44,7 +44,7 @@ public class genericSearch {
 				new PhyscData("이수민", 175, 2.0),
 			};
 			System.out.print("몇 cm인 사람을 찾고 있나요?：");
-			int height = stdIn.nextInt();						
+			int height = sc.nextInt();						
 			int idx = Arrays.binarySearch(
 							x,									
 							new PhyscData("", height, 0.0),		

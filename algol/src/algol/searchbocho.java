@@ -11,14 +11,14 @@ public class searchbocho {
 			while (true) {
 				if (a[i] == key)		// 검색 성공!
 					break;
-				i++;                    // i가 
+				i++;                    // i가 검색을 마쳤을때의 i값은 찾은 검색값이 되는 것이고 i==n이 같은 상황이면 보초값을 찾은게 되는것임 
 			}
 			return i == n ? -1 : i;     // 삼항연산자 
 										/*(i==n)조건 ? -1(참) : i(거짓)*/	
 				
 		}
 
-		public static void main(String[] args) {
+		public static void main(String[] args) { // 키를 지정하면 보초값에도 키가 들어가고 찾는 값도 키가 들어가??? 
 			Scanner sc = new Scanner(System.in);
 
 			System.out.print("요솟수：");
