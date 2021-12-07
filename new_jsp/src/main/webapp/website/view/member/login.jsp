@@ -12,7 +12,7 @@
 	<!--  만약에 로그인이 되어있는 경우  -->
 	<%
 		// 로그인이 되어 있는경우 
-		if( session.getAttribute("id") != null ){
+		if( session.getAttribute("login") != null ){
 			out.print("<script> alert('로그인이 되어있습니다.');</script>");
 			out.println("<script>document.location.href='../main.jsp';</script>");
 		}

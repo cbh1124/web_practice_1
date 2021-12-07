@@ -12,7 +12,7 @@
 	String id = (String)session.getAttribute("id");
 	//boolean result = MemberDao.getMemberDao().namechange(name, id);
 	int i = 0;
-	if()
+	///if()
 	boolean result = MemberDao.getMemberDao().wildchange(type[i], name, id);
 	
 	if(result){

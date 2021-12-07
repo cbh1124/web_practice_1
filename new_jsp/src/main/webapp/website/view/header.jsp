@@ -1,3 +1,4 @@
+<%@page import="dto.Login"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -24,7 +25,10 @@
     
     <!--  헤더 start -->
     	<%
-			String loginid = (String)session.getAttribute("id");
+	    	Login login = (Login)session.getAttribute("login");
+			String loginid = null; 
+			// 세션이 있을경우
+			if( login != null ) {	loginid = login.getM_id();	}
 		%>
     	<div class = "fixed-top bg-white">		<!--  상단 고정, 배경 흰색 -->
     		<div class = "container">    		
@@ -75,7 +79,7 @@
 								<li class = "nav-item"> <a href="#" class = "nav-link">수입차</a> </li>
 								<li class = "nav-item"> <a href="#" class = "nav-link">이벤트</a> </li>
 								<li class = "nav-item"> <a href="#" class = "nav-link">구매후기</a> </li>
-								<li class = "nav-item"> <a href="#" class = "nav-link">고객센터</a> </li>
+								<li class = "nav-item"> <a href="/new_jsp/website/view/board/boardlist.jsp" class = "nav-link">고객센터</a> </li>
 							</ul>
 						</div>
 					</nav>
