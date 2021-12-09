@@ -23,7 +23,7 @@
 				pagenum = "1";	//	1페이지 설정
 			}
 			int b_num = Integer.parseInt(request.getParameter("b_num"));// 전 페이지에서 클릭한 게시물번호
-			int lastrow = BoardDao.getboarddao().replycount(b_num); // 1. 총 게시물수 
+			int lastrow = BoardDao.getboarddao().replycount(b_num); // 1. 총 댓글  수 
 			
 			int listsize = 5;		 //2. 페이지당 화면에 표시할 댓글수 
 			

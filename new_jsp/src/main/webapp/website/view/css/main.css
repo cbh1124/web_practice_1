@@ -27,3 +27,12 @@
 	
 	width : 100%;
 }
+
+.item .price{
+	font-family : "twayair";
+	font-size : 16px;
+}
+
+.pimg:hover{
+	transform : scale(1.4);
+}

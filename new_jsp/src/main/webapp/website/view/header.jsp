@@ -43,7 +43,7 @@
 										if( loginid != null){
 											if(loginid.equals("admin")){ // 로그인 되어 있으면서 관리자 이면 
 									%>
-										<li><a href="/new_jsp/website/view/admin/adminmain.jsp" class="header_menu">관리자</a></li>
+										<li><a href="/jsp/website/view/admin/dashboard.jsp" class="header_menu"> 관리자 </a> </li>
 										
 									<% 		
 											}

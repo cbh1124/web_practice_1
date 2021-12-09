@@ -255,6 +255,7 @@ public class BoardDao {
 			}catch (Exception e) {} return 0;
 		}
 		
+		// ¥Ò±€ ªË¡¶ 
 		public boolean replydelete(int r_num) {
 			String sql = "delete from reply where r_num = ? ";
 			

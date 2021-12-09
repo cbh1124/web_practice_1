@@ -28,4 +28,5 @@
 		out.println("<script>location.href='../view/board/boardview.jsp?b_num="+b_num+"';</script>");
 	}else{	
 	}
+	
 %>

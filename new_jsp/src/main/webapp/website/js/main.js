@@ -200,6 +200,35 @@ function namechange(){
 /* 회원가입 유효성검사 end */
 	
 
+/*제품 상태 변경 */
+function activeupdate(p_num){
+	
+	// confirm : 확인 / 취소 알람 띄우기 
+	// 동기식 
+		//location.href('../../controller/productdeletecontroller.jsp?p_num='+p_num);
+	// 비동기식 
+	
+	
+		// ajax 통신으로 상태를 다음 상태로 변경 	
+		$(function(){
+			alert("체크1");
+			$.ajax({ 
+				url : "../../controller/productactivecontroller.jsp",
+				data : {p_num : p_num},
+				success : function(result){
+					alert("체크2");
+					if(result == 1){ // js 자료형이 없다.
+						// 현재 페이지 초기화 [현재 페이지 refresh]
+						location.reload(); // jquery 메소드
+					}else{
+						alert("변경 실패 [ 관리자에게 문의 ] ")
+					}
+						
+				}
+			 });
+		});
+	
+}
 	
 	
 	
