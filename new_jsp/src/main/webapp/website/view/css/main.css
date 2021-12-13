@@ -36,3 +36,8 @@
 .pimg:hover{
 	transform : scale(1.4);
 }
+
+#total{
+	font-family: 'twayair';
+	font-size: 1.5rem;
+}

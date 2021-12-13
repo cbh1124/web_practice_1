@@ -120,6 +120,38 @@ public class ProductDao extends DB {
 	}
 	// 6. 제품 목록 카운트 메소드 
 	
+	public Product getproduct(int p_num) {
+		String sql = "select * from product where p_num = " + p_num;
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if(rs.next() ) {
+				Product product = new Product(
+						rs.getInt(1),
+						rs.getString(2),
+						rs.getInt(3),
+						rs.getString(4),
+						rs.getString(5),
+						rs.getInt(6),
+						rs.getString(7),
+						rs.getInt(8),
+						rs.getString(9),
+						rs.getString(10),
+						rs.getString(11)
+						);
+				
+				return product;
+					
+				}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}return null;
+	}
+	
+	
+	
+	
 	// 댓글 총 개수 반환 메소드 
 	public int replycount(int b_num) {
 		String sql = "select count(*) from reply where b_num = ?";
@@ -130,5 +162,49 @@ public class ProductDao extends DB {
 			if( rs.next() ) { return rs.getInt(1); }
 		}catch (Exception e) {} return 0;
 	}
+	
+	// 제품 찜하기 값 변환 
+	// 7. 제품 좋아요 메소드 
+	public int plikeupdate(int p_num, int m_num) {
+		// 1. 좋아요 버튼 -> 좋아요[제품번호, 회원번호]
+		// 2. 제품번호와 회원번호가 일치한 좋아요 없으면 좋아요 생성 
+			// 							 있으면 좋아요 삭제 
+		String sql = null;
+		sql = "select * from plike where p_num="+p_num+" and m_num="+m_num;
+		try {
+			ps = con.prepareStatement(sql); rs = ps.executeQuery();
+			if(rs.next()) {
+				sql = "delete from plike where p_num="+p_num+" and m_num="+m_num; 
+				ps = con.prepareStatement(sql); 
+				ps.executeUpdate();
+				return 1;
+			}else {
+				sql = "insert into plike(p_num, m_num) values("+p_num+","+ m_num+")";
+				ps = con.prepareStatement(sql); 
+				ps.executeUpdate();
+				return 2;
+			}
+		} catch (Exception e) {
+			
+		}return 0;
+		
+	}
+	
+	// 8.제품 좋아요 확인 메소드 
+	public boolean plikecheck(int p_num, int m_num) {
+		
+		String sql = "select * from plike where p_num="+p_num+" and m_num="+m_num;
+		
+		try {
+			ps = con.prepareStatement(sql); rs = ps.executeQuery();
+			if(rs.next()) {
+				return true;
+			}
+		} catch (Exception e) {
+			
+		}return false;
+		
+	}
+	
 	
 }

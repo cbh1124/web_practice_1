@@ -20,6 +20,7 @@ public class Product {
 	    	return decimalFormat.format(this.p_price);
 	    }
 	    
+	    
 	    public String getactive() {
 	    	if(this.p_active == 1) {
 	    		return "¡ÿ∫Ò¡ﬂ";
