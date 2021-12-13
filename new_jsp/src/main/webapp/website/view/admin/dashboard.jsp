@@ -34,7 +34,6 @@
 	%>
 	<div class="container">
 		<form action="" method = "get" class = "col-md-5 offset-3 input-group my-3">
-				
 				<select class ="custom-select col-md-3" name = "key">
 					<option value = "p_num"> 제품번호</option>
 					<option value = "p_name"> 제품명</option>
