@@ -296,11 +296,59 @@ function plike(p_num, m_num){
 		});
 	});
 	
-}
-	
-	
-	
-	
+}	
 /*찜하기 end */	
 	
+	
+/* 장바구니 */
+
+function cartadd(){
+	var p_num = document.getElementById("p_num").value;				//alert("s id속성 : " +  p_num );
+		// 2. class 속성 이용 // class 속성 중복 허용 하기 때문에 배열 이용
+		//var p_num5 = document.getElementsByClassName("p_num")[0].value;	alert("s class속성 : " +  p_num5 );
+		// 3. name속성 이용	// name 속성 중복 허용 하기 때문에 배열 이용
+		//var p_num6 = document.getElementsByName("p_num")[0].value;		alert("s  name속성 : " +  p_num6 );
+	var p_size = document.getElementById("p_size").value;			//alert("s id속성 : " +  p_size );
+		if( p_size == 0 ){ // 만약에 옵션을 선택 안했으면 
+			alert("옵션 선택해주세요");	return;	// 함수 종료 
+		}
+	var p_count = document.getElementById("pcount").value;			//alert("s id속성 : " +  p_count );
+	
+	// 컨트롤러 페이지 이동 [ 1. 하이퍼링크 2.ajax ]
+		// location.href = "../../controller/productcartcontroller.jsp?p_num="+p_num+"&p_size="+p_size+"&p_count="+p_count;
+		
+		$.ajax({ // 페이지 전환이 없음 [ 해당 페이지와 통신 ]
+			
+			url :  "../../controller/productcartcontroller.jsp" ,
+			// 해당 url에 데이터 값을 전달 
+			data : { p_num : p_num , p_size : p_size , p_count : p_count } ,
+			// 통신이 성공적이라면 
+			success : function( result ){
+				if( confirm("장바구니에 담았습니다 [ 장바구니로 이동할까요? ]") == true ){
+					location.href="productcart.jsp"
+				} 
+			}
+		});
+		
+		
+}
+
+
+/* 장바구니 end */
+
+/* 장바구니 삭제 */
+
+function cartdelete( type , p_num , p_size ){
+	// Js<-->jsp 클래스 호환X
+	$.ajax({ // 페이지 전환이 없음 [ 해당 페이지와 통신 ]
+			
+			url :  "../../controller/productcartdeletecontroller.jsp" ,
+			data : { type : type , p_num : p_num , p_size : p_size } ,
+			success : function( result ){
+				location.reload(); // 현재페이지 새로고침
+			}
+	});
+}
+
+/* 장바구니 삭제 end */
 	
