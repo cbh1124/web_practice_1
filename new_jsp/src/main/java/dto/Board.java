@@ -7,7 +7,7 @@ import java.util.Date;
 import dao.MemberDao;
 
 public class Board {
-	// ÇÊµå 
+	// ï¿½Êµï¿½ 
 	private int b_num;
 	private String b_title;
 	private String b_contents;
@@ -18,11 +18,10 @@ public class Board {
 	private int b_activation;
 	private String b_writer;
 	
-	// »ý¼ºÀÚ [ 1.ºó»ý¼ºÀÚ 2.ÀüÃ¼»ý¼ºÀÚ 3.µî·Ï»ý¼ºÀÚ 4.¼öÁ¤ »ý¼ºÀÚ]
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [ 1.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 2.ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 3.ï¿½ï¿½Ï»ï¿½ï¿½ï¿½ï¿½ï¿½ 4.ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]
 	public Board() {}
 	public Board(int b_num, String b_title, String b_contents, int m_num, String b_date, String b_file, int b_view,
 			int b_activation) {
-		super();
 		this.b_num = b_num;
 		this.b_title = b_title;
 		this.b_contents = b_contents;
@@ -34,7 +33,7 @@ public class Board {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		SimpleDateFormat timeformat = new SimpleDateFormat("hh:mm");
 		try {
-			Date date =  datetimeformat.parse( b_date );	// [¹®ÀÚ¿­]DB -> ³¯ÀÚÇü º¯È¯
+			Date date =  datetimeformat.parse( b_date );	// [ï¿½ï¿½ï¿½Ú¿ï¿½]DB -> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
 	
 			if( dateFormat.format( date ).equals(  dateFormat.format( today ) ) ) {
 				
