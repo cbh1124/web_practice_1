@@ -1,3 +1,4 @@
+<%@page import="dao.ProductDao"%>
 <%@page import="dto.Login"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -12,18 +13,26 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<!-- jquery[ajax 함수] -->
 	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-	<!-- 본인 js -->
-    <script src ="/new_jsp/website/js/main.js?ver=123"></script>
+	
 	<!-- 부트스트랩 js 설정 -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	
-
     <!-- 다음 우편주소 api js 호출 -->
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     
+    <!-- chart api -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    
+    <!-- 본인 js -->
+    <script src ="/new_jsp/website/js/main.js?ver=123"></script>
+    
     <!--  헤더 start -->
+   	
+    <% // 재고가 0일경우 제품의 사태가 품절로 변경
+    ProductDao.getProductDao().stockupdate(); %>
     	<%
 	    	Login login = (Login)session.getAttribute("login");
 			String loginid = null; 
@@ -80,6 +89,7 @@
 								<li class = "nav-item"> <a href="#" class = "nav-link">이벤트</a> </li>
 								<li class = "nav-item"> <a href="#" class = "nav-link">구매후기</a> </li>
 								<li class = "nav-item"> <a href="/new_jsp/website/view/board/boardlist.jsp" class = "nav-link">고객센터</a> </li>
+								<li class = "nav-item"> <a href="/new_jsp/website/view/product/productcart.jsp" class = "nav-link">장바구니</a> </li>
 							</ul>
 						</div>
 					</nav>

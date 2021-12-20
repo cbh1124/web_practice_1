@@ -206,5 +206,22 @@ public class ProductDao extends DB {
 		
 	}
 	
+	// 9. 실시간 재고가 0이면 제품 상태를 품절 업데이트 처리 
+	public void stockupdate() {
+		// 재고가 0인 제품 찾기 
+		String sql = "select * from product where p_stock = 0";
+		
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				sql = "update product set p_active = 3 where p_num = "+rs.getInt(1);
+				ps = con.prepareStatement(sql); ps.executeUpdate();
+			}
+		}catch (Exception e) {
+			
+		}
+	}
+	
 	
 }

@@ -50,3 +50,13 @@
 .cimg{
 	text-align: center;
 }
+
+.carttotal{
+	font-family: 'twayair';
+	font-size: 1.5rem;
+}
+
+.totalbox{
+	border : 3px solid #eeeeee;
+	margin : 30px; padding: 50px;
+}

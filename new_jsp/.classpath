@@ -15,5 +15,7 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="C:/Users/ez201207/git/web_practice_1/new_jsp/src/main/webapp/WEB-INF/lib/cos.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ez201207/git/web_practice_1/new_jsp/src/main/webapp/WEB-INF/lib/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ez201207/git/web_practice_1/new_jsp/src/main/webapp/WEB-INF/lib/jsoup-1.14.3.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

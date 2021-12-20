@@ -303,6 +303,15 @@ function plike(p_num, m_num){
 /* 장바구니 */
 
 function cartadd(){
+	// 제이쿼리[jquery]를 이용한 값 가져오기
+		// 1. id속성 이용 
+		// var p_num2 = $("#p_num").val();								alert("id속성 : " +  p_num2 );
+		// 2. class속성 이용
+		// var p_num3 = $(".p_num").val(); 								alert("class속성 : " +  p_num3 );
+		// 3. name속성 이용
+		// var p_num4 = $("input[name=p_num]").val(); 					alert("name속성 : " +  p_num4 );
+	// 자바스크립트[js] 를 이용한 값 가져오기 
+		// 1. id속성 이용
 	var p_num = document.getElementById("p_num").value;				//alert("s id속성 : " +  p_num );
 		// 2. class 속성 이용 // class 속성 중복 허용 하기 때문에 배열 이용
 		//var p_num5 = document.getElementsByClassName("p_num")[0].value;	alert("s class속성 : " +  p_num5 );
@@ -320,9 +329,7 @@ function cartadd(){
 		$.ajax({ // 페이지 전환이 없음 [ 해당 페이지와 통신 ]
 			
 			url :  "../../controller/productcartcontroller.jsp" ,
-			// 해당 url에 데이터 값을 전달 
 			data : { p_num : p_num , p_size : p_size , p_count : p_count } ,
-			// 통신이 성공적이라면 
 			success : function( result ){
 				if( confirm("장바구니에 담았습니다 [ 장바구니로 이동할까요? ]") == true ){
 					location.href="productcart.jsp"
@@ -343,7 +350,7 @@ function cartdelete( type , p_num , p_size ){
 	$.ajax({ // 페이지 전환이 없음 [ 해당 페이지와 통신 ]
 			
 			url :  "../../controller/productcartdeletecontroller.jsp" ,
-			data : { type : type , p_num : p_num , p_size : p_size } ,
+			data : { type : type , p_num : p_num , p_size : p_size , i : -1, p_count : -1 } ,
 			success : function( result ){
 				location.reload(); // 현재페이지 새로고침
 			}
@@ -351,4 +358,331 @@ function cartdelete( type , p_num , p_size ){
 }
 
 /* 장바구니 삭제 end */
+
+
+/* 장바구니 수량 변경 */
+function pchange2( i , type , stock , price ){
 	
+	var p_count = document.getElementById("pcount"+i).value*1;
+	if( type=='m'){		p_count -= 1;	
+		if( p_count< 1){	
+			alert("수량은 1개 이상만 가능 합니다."); p_count = 1;
+		}
+	}else if( type =="p" ){	p_count += 1;	
+		if( p_count > stock ){
+			alert("죄송합니다. 재고가 부족합니다.");	p_count = stock;
+		}
+	}else{	
+		if( p_count > stock ){
+			alert("죄송합니다. 재고가 부족합니다.");	p_count = stock;
+		}
+		if( p_count<1){	// 만약에 1보다 작아지면
+			alert("수량은 1개 이상만 가능 합니다."); p_count = 1;
+		}
+	}
+	document.getElementById("pcount"+i).value = p_count; 
+	var totalprice = p_count * price; // 총가격 = 제품수량 * 제품가격 
+	document.getElementById("total"+i).innerHTML = totalprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); 	// . innerHTML 속성 태그 [ div ]
+
+	$.ajax({
+			url :  "../../controller/productcartdeletecontroller.jsp" ,
+			data : { type : type , p_num : -1 , p_size : -1 , i : i , p_count : p_count } ,
+			success : function( result ){
+				location.reload(); 
+			}
+	});
+	
+}
+
+
+
+/* 장바구니 수량 변경 end */
+/*결제방식 */
+function requestPayselect(payselect){
+	document.getElementById("payselect").innerHTML=payselect;
+}
+/*결제방식 e */
+
+/*아임포트 */
+function requestPay(){
+	if(document.getElementById("payselect").innerHTML == ""){
+		alert("결제방식을 선택해주세요");
+		return;
+	}
+
+	var IMP = window.IMP; 
+    IMP.init("imp22849370"); //  관리자 식별번호 
+	IMP.request_pay({ // param
+          pg: "html5_inicis", //pg사 [ 아임포트 관리자페이지에서 선택한 pg사]
+          pay_method: document.getElementById("payselect").innerHTML,	// 결제 방식
+          merchant_uid: "ORD20180131-0000011",
+          name: "나만의 쇼핑몰(아 모르겠다)",
+          amount: document.getElementById("totalpay").innerHTML*1,	// 결제금액
+          buyer_email: "119vkfks@gmail.com",
+          buyer_name: $("#name").val(),
+          buyer_tel: $("#phone").val(),
+          buyer_addr: $("#sample4_roadAddress").val() + "," +$("#sample4_jibunAddress").val() ,
+          buyer_postcode: $("#sample4_postcode").val()
+      }, function (rsp) { // callback
+          if (rsp.success) {
+              // 결제 성공 시 로직 -> 주문 오나료 페이지로 이동,
+				alert("결제성공")
+          } else {   
+				
+              // 결제 실패 시 로직,
+             	// 테스트 : 결제 성공 
+				// location.href="productpaymentsuccess.jsp"
+				$.ajax({
+					url : "../../controller/productpaymentcontroller.jsp" ,
+					data : {
+						order_name :  $("#name").val(),
+						order_phone	:  $("#phone").val(),
+						order_address : $("#sample4_postcode").val()+","+$("#sample4_roadAddress").val()+","+$("#sample4_jibunAddress").val()+","+$("#sample4_detailAddress").val() ,
+						order_pay : document.getElementById("totalpay").innerHTML,
+						order_payment : document.getElementById("payselect").innerHTML ,
+						delivery_pay : 3000 ,
+						order_request : document.getElementById("prequest").value
+					 } , 
+					success : function( result ){
+						if(result == 1){location.href = "productpaymentsuccess.jsp"; }
+						else{ alert("주문db오류 관리자에게 문의");}
+					}
+				})
+          };
+	 });
+}
+/*아임포트 e*/
+
+/* 회원과 동일 체크 */
+
+	
+//$(document).ready( function(){ 실행문 });	// 문서내에서 대기상태 이벤트 
+$(document).ready( function(){ 
+	// 체크 유무 검사 [ jquery ]
+	$("#checkbox").change( function(){
+		// 체크박스가 변경 이벤트 
+		if( $("#checkbox").is(":checked")){
+			// 체크박스가 체크가 되었는지 확인 = true 
+				// is : 해당 태그에 속성 유무 확인 [ ":속성명" ] 메소드 
+			$("#name").val(  $("#mname").val()  );
+			$("#phone").val(  $("#mphone").val() );
+		}else{ // 체크 해제시 공백 채움
+			$("#name").val("");
+			$("#phone").val("");
+		}
+	});
+	$("#checkbox2").change( function(){
+
+		if( $("#checkbox2").is(":checked")){
+			$("#sample4_postcode").val(  $("#address1").val() );
+			$("#sample4_roadAddress").val(  $("#address2").val() );
+			$("#sample4_jibunAddress").val(  $("#address3").val() );
+			$("#sample4_detailAddress").val(  $("#address4").val() );
+		}else{
+			$("#sample4_postcode").val( "" );
+			$("#sample4_roadAddress").val( "" );
+			$("#sample4_jibunAddress").val( "" );
+			$("#sample4_detailAddress").val( "" );
+		}
+	});
+});	
+
+/* 회원과 동일 체크 end */
+
+
+/* 결제 정보 */
+
+function pointcheck(mpoint){
+	var point = document.getElementById("point").value*1;
+
+	if( mpoint < point ){
+		alert("포인트 부족");
+		point = 0;
+	}else{
+		document.getElementById("usepoint").innerHTML = point;
+		
+	}
+	var totalprice = document.getElementById("totalprice").innerHTML*1
+	var totaldeliverypay = document.getElementById("totaldeliverypay").innerHTML*1
+	document.getElementById("totalpay").innerHTML = totalprice+totaldeliverypay-point;
+	
+}
+
+function requestPayselect(payselect){
+	document.getElementById("payselect").innerHTML=payselect;
+}
+
+
+/*스크롤 : jquery */
+	
+	var item = 2; // 기본 주문 2개를 제외한 세번째 주문 부터 
+	// $(window) : 현재 창 
+	$(window).scroll(function() {
+		
+		// $(window).scrollTop() : 현재 스크롤의 위치
+		//alert("현재 스크롤 위치 : "+$(window).scrollTop());
+		//alert("현재 화면의 높이[ 보이는 화면 ] : "+$(window).height());
+		//alert("문서 높이[ 보이지 않는 화면 까지 포함] : " + $(document).height());
+		
+		// 스크롤이 바닥에 닿았을때 계산 
+		//alert("신호")
+		if($(window).scrollTop() == $(document).height() -$(window).height() ){
+					// (문서 전체) 현재 스크롤 위치 == 문서전체높이 - 현재문서높이
+			//alert("스크롤이 바닥에 닿음");
+			//alert("현재 스크롤 위치 : "+$(window).scrollTop());
+			//alert("현재 화면의 높이[ 보이는 화면 ] : "+$(window).height());
+			//alert("문서 높이[ 보이지 않는 화면 까지 포함] : " + $(document).height());
+			//alert("바닥에 닿음")
+			$.ajax({
+				url : "../../controller/orderlistscrollcontroller.jsp",
+				data : {item : item},
+				success : function(result){
+					//alert(result);
+					$('section').append(result);
+				}
+				
+			});
+			item++; // 스크롤 이벤트가 실행될때마다 주문 1씩 증가 
+			//alert(item);
+		}
+		
+	});
+	
+	// alert("현재 스크롤 위치 : "+$(window).scrollTop());
+	
+	
+	/* json */
+	
+	// js에서 변수 저장하는 방법 
+		// 1. var 변수명 = 값  	 : 하나의 값 저장 
+		// 2. var 배열명 = { }	 : 여러개 값 저장 
+			// var arr = {1,2,3,4};
+		// 3. var json = { }  	 : 여러개 엔트리(키 : 값) 저장 
+			// json 값 호출시 => 키를 이용함 
+				// json변수명[키] => 값 호출 
+			// json 키 호출시 => Object.keys()
+				// Object.keys(json변수명) : 모든 키 호출
+			// json 활용[ 배열과 중첩 사용 가능 ]
+				// 키 : { 키 : [] } 
+			// DB 데이터 -> JSON 변환 [ ]
+	// var : 변수자료형 [js는 자료형 없다] 
+	//  배열형식 []  
+	//var arr = [1,2,3,4];
+	// json 형식 json { } [java map 형식]
+	//var test = {'id' : 'qweqwe', 'password' : 'qweqwe'}
+				// 키 : 값 => 한쌍[엔트리]
+				
+	//var key = Object.keys(test);
+		// Object.keys(json변수명) : 모든 키 호출 [ ] 
+		
+	//for(var i = 0; i<key.length; i++ ){		// 키 개수 만큼 반복 
+		//alert( "키: " + key[i] +" 값: " + test[i].value);		// 키 출력
+		
+	//}
+		// JSON 형식으로 가져오기
+	//$.getJSON('경로/파일명', function(json인수명){})
+		$.getJSON('../../controller/productchartcontroller.jsp' , function(jsonObject){
+			var keyval = [ ];  // 모든 키를 저장하는 배열
+			var valueval = [ ]; // 모든 값을 저장하는 배열
+			var keys = Object.keys( jsonObject );   // Object.keys( json변수명 ) : 모든 키 호출
+			for( var i =0 ; i<keys.length; i++ ){	// 키 개수 만큼 반복 
+				keyval[i] = keys[i];	 // i번째 키 저장
+				valueval[i] = jsonObject[keyval[i] ]; // i번째 value 저장
+			}
+			
+										/*차트 만들어주는 js */
+				// 1. 차트를 표시할 위치 선정
+				var context = document.getElementById('myChart').getContext('2d');
+				// 2. 차트 변수 만들기 
+				// var chartname = new Chart("", {차트속성1:값1, 차트속성2:값2, 차트속성3 :값3 } );
+				var myChart = new Chart(context, {
+					
+					type : 'bar', // 차트의 형태 [bar : 막대차트 //line : 선차트 등등 ]
+					data : {		// 차트의 데이터 [가로축, 세로축, 계열값]
+						labels : keyval,	// 가로축
+						datasets: [
+							{	// 범례 = 계열 
+								label: '날짜별 주문수', 	// 계열 이름 
+								data: valueval,// 계열 값
+								backgroundColor: [	// 계열 색상 
+									'rgba(255, 99, 132, 0.2)',
+									'rgba(54, 162, 235, 0.2)',
+									'rgba(255, 206, 86, 0.2)',
+									'rgba(75, 192, 192, 0.2)',
+									'rgba(153, 102, 255, 0.2)',
+									'rgba(255, 159, 64, 0.2)'
+								],
+								borderColor: [ // 계열 마무리 색상
+									'rgba(255, 99, 132, 1)',
+									'rgba(54, 162, 235, 1)',
+									'rgba(255, 206, 86, 1)',
+									'rgba(75, 192, 192, 1)',
+									'rgba(153, 102, 255, 1)',
+									'rgba(255, 159, 64, 1)'
+								],
+								borderWidth: 1 // 계열 테두리 굵기
+							}]
+					},
+					options: {	// 차트 옵션
+						scales: {
+							yAxes:  // y : 세로축 
+								[
+									{
+										ticks: {
+												beginAtZero: true // 기본값 : 0부터 시작 
+											}	
+									}
+								]
+							
+						}
+					}
+				});
+	
+	
+	/*차트 만들어주는 js end */
+		});
+	
+	/*json library */
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/*차트 만들어주는 js end */
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+/*스크롤 e*/

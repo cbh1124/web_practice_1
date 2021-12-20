@@ -1,3 +1,9 @@
+<%@page import="dao.ProductDao"%>
+<%@page import="dto.Product"%>
+<%@page import="dto.Porderdetail"%>
+<%@page import="dao.PorderDao"%>
+<%@page import="dto.Porder"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="dao.MemberDao"%>
 <%@page import="dto.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -39,7 +45,44 @@
 					<div class="tab-pane fade show active" id="pills-order">	<!-- fade : 숨김  show : 열기   -->
 						<h3> 주문 목록 </h3>
 						<div class="container">
-							하하하하하하ㅏ하하하하하
+							<section>
+							<%ArrayList<Porder>porders = 
+								PorderDao.getPorderDao().getporderlist( login.getM_num() ); // 1. 주문자의 주문 목록  %> 
+							<% for( int i = 0 ; i<2; i++ ){ %>
+							<div class="row mt-5">
+								<div class="col-md-4 border rounded p-3 d-flex align-content-center flex-wrap"> <!-- 주문 정보 -->
+									<p class="pview"> 주문번호 : <%=porders.get(i).getOrder_num() %> </p>
+									<p> 주문일 : <%=porders.get(i).getOrder_date() %> </p>
+									<button class="form-control">주문상세</button>
+								</div>
+								<div class="col-md-8 border rounded p-3"> <!-- 주문 상세 -->
+									<%ArrayList<Porderdetail> porderdetails = 
+										PorderDao.getPorderDao().getPorderdetaillist(porders.get(i).getOrder_num()); // 2. 주문목록통해 주문상세 %>
+									<% for( int j = 0 ; j<porderdetails.size(); j++ ){ %>
+									<% 		Product product = ProductDao.getProductDao().getproduct(porderdetails.get(j).getP_num() ); // 3. 주문상세통해 제품정보 %>
+										<p> 주문 제품내역</p> <hr>
+										<div class="row">
+											<div class="col-md-3 d-flex align-items-center">  <!-- d-flex align-items-center : 수직정렬 -->
+												<img alt="" src="../../upload/<%=product.getP_img()%>" style="max-width: 100%;">
+											</div>
+											<div class="col-md-9 row">
+												<div class="col-md-8">
+													<p class="pview" > 상품명 : <%=product.getP_name()%>  </p>
+													<p> 옵션 : <%=product.getP_size()%> 수량 : <%=porderdetails.get(j).getP_count()%> </p>
+													<p> 배송상태 : <%=porderdetails.get(j).getDelivery_state()%> </p>
+												</div>
+												<div class="col-md-2">
+													<button class="btn btn-outline-danger my-3"> 배송 조회 </button>
+													<button class="btn btn-outline-danger my-3"> 주문 변경 </button>
+												</div>
+											</div>
+										</div>
+									<%} %>
+									
+								</div>
+							</div>
+							<%} %>
+							</section>
 						</div>
 					</div>
 					
@@ -66,7 +109,6 @@
 										<td> 포인트 </td> <td colspan="2"> <%=member.getM_point() %> </td>
 									</tr>
 									<tr>
-									
 										<td> 회원명 </td> 
 										<td id="tdname"> <%=member.getM_name() %> </td>
 										<td> <button onclick="namechange();" class="form-control">수정</button> </td>
@@ -82,6 +124,24 @@
 									</tr>
 									<tr>
 										<td> 주소 </td> <td> <%=member.getM_address() %> </td>  	<td> <button class="form-control">수정</button> </td>
+									</tr>
+									<tr style="display: none;" id="traddress">	<!-- css 숨기기 -->
+										<td colspan="3">
+										<div class="row">	<!-- 3:8 -->
+											<div class="col-md-3 m-2"> <label>주소</label> </div>
+											<div class="col-md-8"> 
+												<div class="row">
+													<div class="col-md-6"> <input type="text" name="address1" id="sample4_postcode" placeholder="우편번호" class="form-control"> </div>
+													<div class="col-md-6"> <input type="button"  onclick="sample4_execDaumPostcode()" value="우편번호 찾기" class="form-control"><br> </div>
+												</div>
+												<div class="row">
+													<div class="col-md-6"> <input type="text" name="address2" id="sample4_roadAddress" placeholder="도로명주소" class="form-control"> </div>
+													<div class="col-md-6"> <input type="text" name="address3" id="sample4_jibunAddress" placeholder="지번주소" class="form-control"> </div>
+												</div>
+												<input type="text" id="sample4_detailAddress" name="address4" placeholder="상세주소" class="form-control">
+											</div>
+										</div>
+										<td>
 									</tr>
 									<tr>
 										<td> 가입일 </td> <td colspan="2">  <%=member.getM_sdate() %> </td> 
